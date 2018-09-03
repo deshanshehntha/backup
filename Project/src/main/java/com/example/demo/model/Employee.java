@@ -9,98 +9,98 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
+@Entity
 public class Employee implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+
 	private int employeeId;
 	
-//	@NotEmpty(message="First Name field cannot be empty") @Size(min=3,max=15)
+	@NotEmpty(message="First Name field cannot be empty")
 	private String firstName;
 	
-//	@NotEmpty(message="Last Name field cannot be empty") @Size(min=3,max=15)
+	@NotEmpty(message="Last Name field cannot be empty")
 	private String lastName;
 	
 //	@NotEmpty(message="Birth Date field cannot be empty")
 	private Date birthDate;
 	
-//	@NotEmpty(message="Gender field cannot be empty")
+	@NotEmpty(message="Gender field cannot be empty")
 	private String gender;
 	
-//	@NotEmpty(message="N.I.C field cannot be empty") 
+	@NotNull(message="N.I.C field cannot be empty") 
 	private String NIC;
 	
-//	@NotEmpty(message="Marital status field cannot be empty")
+	@NotEmpty(message="Marital status field cannot be empty")
 	private String maritalStatus;
 	
-//	@NotEmpty(message="Bank Account field cannot be empty")
+	@NotNull(message="Bank Account field cannot be empty")
 	private int bankAccountNo;
 	
-//	@NotEmpty(message="Current Address field cannot be empty")@Size(min=8,max=20)
+	@NotEmpty(message="Current Address field cannot be empty")
 	private String currentAddress;
 	
-//	@NotEmpty(message="Home Address field cannot be empty")@Size(min=8,max=20)
+	@NotEmpty(message="Home Address field cannot be empty")
 	private String homeAddress;
 	
-//	@NotEmpty(message="City field cannot be empty")
+	@NotEmpty(message="City field cannot be empty")
 	private String city;
 	
-//	@NotEmpty(message="Postal Code field cannot be empty")
+	@NotNull(message="Postal Code field cannot be empty")
 	private int postalCode;
 	
-//	@NotEmpty(message="Contact No field cannot be empty")
+	@NotNull(message="Contact No field cannot be empty")
 	private int contactNo1;
 	
 	private int contactNo2;
 	
-//	@Email @NotEmpty(message="Email field cannot be empty")
+	@Email @NotEmpty(message="Email field cannot be empty")
 	private String email;
 	
-//	@NotEmpty(message="Department ID field cannot be empty")
 	private int departmentID;
 	
-//	@NotEmpty(message="Designation field cannot be empty")
+	@NotEmpty(message="Designation field cannot be empty")
 	private String designation;
 	
-//	@NotEmpty(message="Experienced Level  cannot be empty")
+	@NotNull(message="Experienced Level  cannot be empty")
 	private int experiencedLevel;
 	
-//	@NotEmpty(message="Basic Salary field cannot be empty")
+	@NotNull(message="Basic Salary field cannot be empty")
 	private double basicSalary;
 	
-//	@NotEmpty(message="Certificates field cannot be empty")
+	@NotEmpty(message="Certificates field cannot be empty")
 	private String certificates;
 	
-//	@NotEmpty(message="CV field cannot be empty")
+	@NotEmpty(message="CV field cannot be empty")
 	private String cv;
 	
-//	@NotEmpty(message="Photo field cannot be empty")
+	@NotEmpty(message="Photo field cannot be empty")
 	private String profilePhoto;
 	
 //	@NotEmpty(message="Joined Date field cannot be empty")
 	private Date joinedDate;
 	
-//	@NotEmpty(message="License field cannot be empty")
+	@NotEmpty(message="License field cannot be empty")
 	private String drivingLicense;
 	
-//	@NotEmpty(message="Bike Number field cannot be empty")
+	@NotEmpty(message="Bike Number field cannot be empty")
 	private String bikeNo;
 	
-//	@NotEmpty(message="Username field cannot be empty")
+	@NotEmpty(message="User name field cannot be empty")
 	private String userName;
 	
-//	@NotEmpty(message="password field cannot be empty")
+	@NotEmpty(message="password field cannot be empty")
 	private String password;
 	
-//	@NotEmpty(message="Vehicle Number field cannot be empty")
+	@NotEmpty(message="Vehicle Number field cannot be empty")
 	private String VehicleNo;
 	
-//	@NotEmpty(message="Availability field cannot be empty")
+	@NotEmpty(message="Availability field cannot be empty")
 	private String availability;
 	
 	
@@ -152,6 +152,9 @@ public class Employee implements Serializable {
 	public void setBankAccountNo(int bankAccountNo) {
 		this.bankAccountNo = bankAccountNo;
 	}
+	
+	
+	
 	public String getCurrentAddress() {
 		return currentAddress;
 	}

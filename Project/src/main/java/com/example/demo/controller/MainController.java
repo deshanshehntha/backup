@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.EmployeeDao;
@@ -35,16 +36,16 @@ public class MainController {
 		}
 	
 	
-	@RequestMapping(value="/register",method=RequestMethod.POST)
+	@RequestMapping(value="register",method=RequestMethod.POST)
 	public String enterData(@Valid Employee employee,BindingResult result,ModelMap model,RedirectAttributes redirectAttributes) {
 		
-		if(result.hasErrors()) {
-			
-			return "AddEmployee";
-		}
+//		if(result.hasErrors()) {
+//			System.out.println("Error");
+//			return "AddEmployee";
+//		}
 		employeedao.insert(employee);
 		
-		return "redirect:remove";
+		return "redirect:/remove";
 		}
 	
 	
@@ -55,11 +56,24 @@ public class MainController {
 			return "RemoveEmployee";
 		}
 	
-	@RequestMapping("profile")
-	public String EmpPro() 
+	 
+	@RequestMapping(value="getEmployee",method=RequestMethod.GET)
+	public String editProfile(@RequestParam("employeeId") int employeeId,ModelMap model) 
 		{
+			Employee employee= employeedao.getEmployeeById(employeeId);
+			model.addAttribute("employee", employee);
 			return "EmployeeProfile";
 		}
+	
+
+	
+	@RequestMapping("profile")
+	public String pro(ModelMap model) 
+		{
+			model.addAttribute("employee",new Employee());
+			return "EmployeeProfile";
+		}
+
 	
 	@RequestMapping("t&a")
 	public String TimeAttend() 

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-  <%@ page isELIgnored="false" %>  
+<%@ page isELIgnored="false" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,7 +140,7 @@
 				</select>
 			</div>
 		</div>
-
+		<noscript>Enable JavaScript in your browser</noscript>
 		<script>
 			$(function() {
 				$('.form').hide();
@@ -154,7 +154,8 @@
 		</script>
 
 		<div class="form f1">
-		<form method="POST"  action="#" method="post" id="validateForm1">
+		<div class="form-container">
+		<form:form method="POST"  action="register"  modelAttribute="employee"  id="validateForm1">
 			<div class="row">
 				<div class="col-md-6  my-5 text-center"><Span style="text-decoration: underline;"><h4>Personal Information</h4></Span></div>
 				<div class="col-md-6  my-5 text-center"><Span style="text-decoration: underline;"><h4>Company Information</h4></Span></div>
@@ -166,21 +167,28 @@
 						<div class="form-group row">
 							<label for="firstName" class="col-md-5 col-form-label ml-3">First Name</label>
 							<div class="col-md-6 ml-4">
-								<input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name" />
+								<form:input type="text" name="firstName" path="firstName" class="form-control" id="firstName" placeholder="First Name" />
+								<div class="has-error">
+									<font color="red"><form:errors path="firstName" class="help-inline"/></font>
+								</div>	
 							</div>
 						</div>
 
 						<div class="form-group row">
     						<label for="lastName" class="col-md-5 col-form-label ml-3">Last Name</label>
     						<div class="col-md-6 ml-4">
-      							<input type="text"  name="lastName" class="form-control" id="lastName" placeholder="Last Name"/>
+      							<form:input type="text"  name="lastName" path="lastName" class="form-control" id="lastName" placeholder="Last Name"/>
+								<div class="has-error">
+									<font color="red"><form:errors path="lastName" class="help-inline"/></font>
+								</div>	
+							
 							</div>
 						</div>
    
    						<div class="form-group row">
     						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date</label>
     						<div class="col-md-6 ml-4">
-      							<input type="text" name="bDate" class="form-control" id="datetime1" placeholder="Date Of Birth"/>
+      							<input type="date" name="birthDate" class="form-control" placeholder="Date Of Birth"/>
     					 	</div>
     					</div>
     					
@@ -189,11 +197,11 @@
   							<div class="col-md-6 ml-4">
   								<div class="input-group">
 	   								<div class="custom-control custom-radio custom-control-inline mt-2">
-										<input type="radio" id="customRadioInline1" name="gender" class="custom-control-input"/>
+										<input type="radio" id="customRadioInline1" value="male" name="gender" class="custom-control-input"/>
 	  									<label class="custom-control-label " for="customRadioInline1">Male</label>
 									</div>
 									<div class="custom-control custom-radio custom-control-inline mt-2">
-										<input type="radio" id="customRadioInline2" name="gender" class="custom-control-input"/>
+										<input type="radio" id="customRadioInline2" value="female" name="gender" class="custom-control-input"/>
 	  									<label class="custom-control-label " for="customRadioInline2">Female</label>
 									</div>
     							</div>
@@ -203,7 +211,7 @@
    						<div class="form-group row">
 							<label for="NIC" class="col-md-5 col-form-label ml-3">N.I.C NO</label>
     						<div class="col-md-6 ml-4">
-      							<input type="text" name="nic" class="form-control" id="NIC" placeholder="960662770V"/>
+      							<input type="text" name="NIC" class="form-control" id="NIC" placeholder="960662770V"/>
 				 			</div>
 				 		</div>
       
@@ -211,11 +219,11 @@
 							<label for="status" class="col-md-5 col-form-label ml-3">Marital Status</label>
       						<div class="col-md-6 ml-4">
       							<div class="input-group">
-  									<select class="custom-select" id="status" name="mStatus" >
-								    	<option selected>Married</option>
-									    <option value="1">Single</option>
-									    <option value="2">Divorced</option>
-									    <option value="2">Widowed</option>
+  									<select class="custom-select" id="status" name="maritalStatus" >
+								    	<option value="Married" selected>Married</option>
+									    <option value="Single">Single</option>
+									    <option value="Divorced">Divorced</option>
+									    <option value="Widowed">Widowed</option>
 								  	</select>
     							</div>
     						</div>
@@ -224,7 +232,7 @@
 						 <div class="form-group row">
 							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number</label>
   							<div class="col-md-6 ml-4">
-      							<input type="text" name="baNo" class="form-control" id="bankAccountNo" />
+      							<input type="text" name="bankAccountNo" class="form-control" id="bankAccountNo" />
 							</div>
 						</div>
 				</div>
@@ -234,7 +242,7 @@
   					<div class="form-group row">
   	 					<label for="employeeId" class="col-md-5 col-form-label ml-3">Employee ID</label>
     					<div class="col-md-6 ml-4">
-     			 			<input type="text"  name="eId" class="form-control" id="employeeId" placeholder="Employee ID"/>
+     			 			<input type="text"  name="eId" class="form-control" value="${employeeId}" id="employeeId"/>
  						</div>
     				</div>
     
@@ -242,8 +250,8 @@
   						<label for="departmentID" class="col-md-5 col-form-label ml-3">Department</label>
     					<div class="col-md-6 ml-4">
     						<div class="input-group">
-						  		<select class="custom-select" id="departmentID" name="dept" >
-							    	<option selected>IT</option>
+						  		<select class="custom-select" id="departmentID" name="departmentID" >
+							    	<option value="1"selected>IT</option>
 							    	<option disabled>SE</option>
 							    	<option disabled>Transport</option>
 						  		</select>
@@ -268,7 +276,7 @@
      					<label for="exlevel" class="col-md-5 col-form-label ml-3">Experienced Level</label>
     					<div class="col-md-6 ml-4">
       						<div class="input-group">
-						  		<select class="custom-select" name="exLevel" id="exlevel">
+						  		<select class="custom-select" name="experiencedLevel" id="exlevel">
 							    	<option selected>1</option>
 								    <option value="1">2</option>
 								    <option value="2">3</option>
@@ -280,7 +288,7 @@
 					<div class="form-group row">
       					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary</label>
     					<div class="col-md-6 ml-4">
-      						<input type="text" name="bSal" class="form-control" id="basicSalary"/>
+      						<input type="text" name="basicSalary" class="form-control" id="basicSalary"/>
 						</div>
     				</div>
     
@@ -289,7 +297,7 @@
     					<div class="col-md-6 ml-4">
     						<div class="input-group">
   								<div class="custom-file">
-    								<input type="file" name="certi" class="custom-file-input" id="certificate" aria-describedby="inputGroupFileAddon04"/>
+    								<input type="file" name="certificates" class="custom-file-input" id="certificate" aria-describedby="inputGroupFileAddon04"/>
     								<label class="custom-file-label" for="certificate">Choose file</label>
   								</div>
 							</div>
@@ -313,7 +321,7 @@
     					<div class="col-md-6 ml-4">
         					<div class="input-group">
   								<div class="custom-file">
-    								<input type="file" name="pPhoto" class="custom-file-input" id="photo" aria-describedby="inputGroupFileAddon04"/>
+    								<input type="file" name="profilePhoto" class="custom-file-input" id="photo" aria-describedby="inputGroupFileAddon04"/>
     								<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
   								</div>
 							</div>
@@ -323,7 +331,7 @@
 					<div class="form-group row">
     					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date</label>
     					<div class="col-md-6 ml-4">
-      						<input type="text" class="form-control" name="jDate" id="datetime2"/>
+      						<input type="date" class="form-control" name="joinedDate" />
     					</div>
     				</div>
     			</div>
@@ -340,14 +348,14 @@
 					<div class="form-group row">
 						<label for="cAddress" class="col-md-5 col-form-label ml-3">Current Address</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="cAddress" class="form-control" id="cAddress" />
+	      					<input type="text" name="currentAddress" class="form-control" id="caAddress" />
 	      				</div>
 	      			</div>
 	      			
 					<div class="form-group row">
 						<label for="hAddress" class="col-md-5 col-form-label ml-3">Home Address</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="hAddress" class="form-control" id="hAddress"/>
+	      					<input type="text" name="homeAddress" class="form-control" id="hAddress"/>
 	      				</div>
 	      			</div>
 		
@@ -361,21 +369,21 @@
 	  				<div class="form-group row">
 						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="pCode" class="form-control" id="pcode" />
+	      					<input type="text" name="postalCode" class="form-control" id="pcode" />
 	      				</div>
 					</div>
 	  	
 	  				<div class="form-group row">
 						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="cn1" class="form-control" id="cn1" />
+	      					<input type="text" name="contactNo1" class="form-control" id="cn1" />
 	      				</div>
 	  				</div>
 	  
 	  				<div class="form-group row">
 						<label for="cn2" class="col-md-5 col-form-label ml-3">Contact No 2</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="cn2" class="form-control" id="cn2" />
+	      					<input type="text" name="contactNo2" class="form-control" id="cn2" />
 	      				</div>
 					</div>
 					
@@ -392,7 +400,7 @@
 					<div class="form-group row">
       					<label for="uName" class="col-md-5 col-form-label ml-3">User Name</label>
     					<div class="col-md-6 ml-4">
-      						<input type="text"  name="uName" class="form-control" id="uName"/>
+      						<input type="text"  name="userName" class="form-control" id="uName"/>
     					</div>
     				</div>
     
@@ -408,7 +416,7 @@
   			<div class="row">
       			<div class="col md-5 offset-3 mt-5 ">
       				<div class="form-actions ">
-      					<button type="submit" class="btn btn-primary">Submit</button>
+      					<Input type="submit" value="Submit" class="btn btn-primary">
     				</div>
     			</div>
 
@@ -417,15 +425,8 @@
     			</div>
       		</div>
 
-			<script type="text/javascript">
-				$('#datetime1,#datetime2').datetimepicker({
-					timepicker : false,
-					format : 'd-m-y',
-					maxDate : 0
-				});
-			</script>
 	
-  		</form>
+  		</form:form>
   		
   		<script>
             $('#certificate,#cv,#photo').on('change',function(){
@@ -472,10 +473,18 @@
 						}
 					},
 		
-					bDate: {
+					birthDate: {
 						validators: {
 							notEmpty: {
-								message: 'Select Birth Date'
+								message: 'Birth Date is required'
+							}
+						}
+					},
+					
+					joinedDate: {
+						validators: {
+							notEmpty: {
+								message: 'Joined Date is required'
 							}
 						}
 					},
@@ -488,7 +497,7 @@
 						}
 					},
 					
-					nic: {
+					NIC: {
 						validators: {
 							notEmpty: {
 								message: 'N.I.C field is required'
@@ -496,7 +505,7 @@
 						}
 					},
 					
-					mStatus: {
+					maritalStatus: {
 						validators: {
 							notEmpty: {
 								message: 'Marital Status field is required'
@@ -504,7 +513,7 @@
 						}
 					},
 					
-					baNo: {
+					bankAccountNo: {
 						validators: {
 							notEmpty: {
 								message: 'Bank Account Number  is required'
@@ -512,7 +521,7 @@
 						}
 					},
 					
-					cAddress: {
+					currentAddress: {
 						validators: {
 							notEmpty: {
 								message: 'Current Address is required'
@@ -520,7 +529,7 @@
 						}
 					},
 					
-					hAddress: {
+					homeAddress: {
 						validators: {
 							notEmpty: {
 								message: 'Home Address  is required'
@@ -537,7 +546,7 @@
 					},
 					
 					
-					cn1: {
+					contactNo1: {
 						validators: {
 							notEmpty: {
 								message: 'Contact No 1 field  is required'
@@ -545,7 +554,7 @@
 						}
 					},
 					
-					cn2: {
+					contactNo2: {
 						validators: {
 							notEmpty: {
 								message: 'Contact No 2  is required'
@@ -561,7 +570,7 @@
 						}
 					},
 					
-					exLevel: {
+					experiencedLevel: {
 						validators: {
 							notEmpty: {
 								message: 'Experienced Level  is required'
@@ -569,7 +578,7 @@
 						}
 					},
 					
-					bSal: {
+					basicSalary: {
 						validators: {
 							notEmpty: {
 								message: 'Basic Salary  is required'
@@ -577,7 +586,7 @@
 						}
 					},
 					
-					certi: {
+					certificates: {
 						validators: {
 							notEmpty: {
 								message: 'Certificate  is required'
@@ -593,7 +602,7 @@
 						}
 					},
 					
-					pPhoto: {
+					profilePhoto: {
 						validators: {
 							notEmpty: {
 								message: 'Profile Photo  is required'
@@ -601,15 +610,9 @@
 						}
 					},
 					
-					jDate: {
-						validators: {
-							notEmpty: {
-								message: 'Joined Date  is required'
-							}
-						}
-					},
 					
-					uName: {
+					
+					userName: {
 						validators: {
 							notEmpty: {
 								message: 'Username  is required'
@@ -625,7 +628,7 @@
 						}
 					},
 					
-					pCode: {
+					postalCode: {
 						validators: {
 							notEmpty: {
 								message: 'Postal Code  is required'
@@ -633,7 +636,7 @@
 						}
 					},
 					
-					dept: {
+					departmentID: {
 						validators: {
 							notEmpty: {
 								message: 'Department  is required'
@@ -654,7 +657,7 @@
 				});
 			});
    			
-		</script>
+		</script></div>
   		</div>
   		
   		<div class="form f2">

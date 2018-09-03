@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page isELIgnored="false" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +11,11 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/glyphican.css">
     <script src="js/jquery.js"></script>
     <script src="js/proper.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrapValidator.js"></script>
 	 	
 	<title>EmployeeProfile</title>
 </head>
@@ -122,232 +127,411 @@
 				</div>
 			</div>
 		</div>
+	
+	
+	<form method="GET"  action="getEmployee" >
+	<div class="row">	
+		<div class="col-md-2 offset-3 my-5">Enter Employee ID</div>
+		<div class="col-md-4 my-5">				
+			<input type="text" class="form-control" name="employeeId" id="inputid" placeholder="Enter ID"/>
+		</div>
+	</div>
+	</form>
+	
+	
+	<form:form method="POST" action="getEmployee" modelAttribute="employee" id="validateEditForm">
+		<div class="row">
+			<div class="col-md-5 offset-1">
+
+				<div class="row">
+					<div class="col" style=" margin-top: 110px">
+						<img src="Images/propic.png" class="img-thumbnail rounded mx-auto d-block" style="width:60%;height: 80%">
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col my-5 text-center"><Span style="text-decoration: underline;"><h4>Contact Information</h4></Span></div>
+				</div>
+
+				<div class="form-group row">
+					<label for="currentAddress" class="col-md-5 col-form-label ml-4">Current Address</label>
+    				<div class="col-md-6">
+      					<form:input type="text" path="currentAddress" class="form-control" name="currentAddress"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="homeAddress" class="col-md-5 col-form-label ml-4" >Home Address</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="homeAddress" name="homeAddress" placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="city" class="col-md-5 col-form-label ml-4" >City</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="city" name="city" placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="postalCode" class="col-md-5 col-form-label ml-4" >Postal Code</label>
+    				<div class="col-md-6">
+      					<form:input type="number" class="form-control" path="postalCode" name="postalCode" placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="contactNo1" class="col-md-5 col-form-label ml-4" >Contact No1</label>
+    				<div class="col-md-6">
+      					<form:input type="number" class="form-control" path="contactNo1" name="contactNo1" placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="contactNo2" class="col-md-5 col-form-label ml-4" >Contact No2</label>
+    				<div class="col-md-6">
+      					<form:input type="number" class="form-control" path="contactNo2" name="contactNo2" placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="email" class="col-md-5 col-form-label ml-4" >Email</label>
+    				<div class="col-md-6">
+      					<form:input type="email" class="form-control" name="email" path="email" placeholder="System Gen"/>
+      				</div>
+      			</div>
+      			
+				<div class="row">
+					<div class="col my-5 text-center"><Span style="text-decoration: underline;"><h4>Other Information</h4></Span></div>
+				</div>
+
+				<div class="form-group row">
+					<label for="bikeNo" class="col-md-5 col-form-label ml-4" >Assigned Bike No</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" name="bikeNo" path="bikeNo" placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="VehicleNo" class="col-md-5 col-form-label ml-4" >Vehicle No</label>
+   					 <div class="col-md-6">
+      					<form:input type="text" class="form-control" path="VehicleNo"  name="VehicleNo" placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="form-group row">
+					<label for="drivingLicense" class="col-md-5 col-form-label ml-4">Driving License</label>
+       				<div class="col-md-6">
+    					<div class="input-group">
+  							<div class="custom-file">
+    							<form:input type="file" class="custom-file-input" path="drivingLicense" name="drivingLicense" aria-describedby="inputGroupFileAddon04"/>
+    							<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  							</div>
+						</div>
+ 					</div>
+  				</div>
+
+			</div>
+			
+			<div class="col-md-5">
+			
+				<div class="row">
+					<div class="col my-5 text-center"><Span style="text-decoration: underline;"><h4>Personal Information</h4></Span></div>
+				</div>
+
+				<div class="form-group row">
+					<label for="firstName" class="col-md-5 col-form-label ml-4">First Name</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="firstName" name="firstName" placeholder="System Gen"/>
+      				</div>
+      			</div>
+      			
+				<div class="form-group row">
+					<label for="lastName" class="col-md-5 col-form-label ml-4">Last Name</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="lastName" name="lastName" placeholder="System Gen"/>
+      				</div>
+      			</div>
+      			
+    			<div class="form-group row">
+					<label for="NIC" class="col-md-5 col-form-label ml-4">N.I.C NO</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="NIC" name="NIC" placeholder="System Gen"/>
+      				</div>
+      			</div>
+    
+        		<div class="form-group row">
+					<label for="maritalStatus" class="col-md-5 col-form-label ml-4">Marital Status</label>
+    				<div class="col-md-6">
+      					<div class="input-group">
+  							<form:select class="custom-select" path="maritalStatus" name="maritalStatus">
+    							<option value="Married" selected>Married</option>
+								<option value="Single">Single</option>
+								<option value="Divorced">Divorced</option>
+								<option value="Widowed">Widowed</option>
+							</form:select>
+    					</div>
+    				</div>
+    			</div>
+    
+				<div class="form-group row">
+					<label for="bankAccountNo" class="col-md-5 col-form-label ml-4">Bank Account Number</label>
+    				<div class="col-md-6">
+      					<form:input type="number" class="form-control" path="bankAccountNo" name="bankAccountNo"  placeholder="System Gen"/>
+      				</div>
+      			</div>
+
+				<div class="row" style="margin-top: 44px">
+					<div class="col my-5  text-center"><Span style="text-decoration: underline;"><h4>Company Information</h4></Span></div>
+				</div>
+				
+				<div class="form-group row">
+	 				<label for="employeeId" class="col-md-5 col-form-label ml-4">Employee ID</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="employeeId" name="employeeId" readonly="true"/>
+    				</div>
+    			</div>
+    
+				<div class="form-group row">
+					<label for="basicSalary" class="col-md-5 col-form-label ml-4">Basic Salary</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="basicSalary" name="basicSalary"/>
+    				</div>
+    			</div>
+    
+    			<div class="form-group row">
+    				<label for="profilePhoto" class="col-md-5 col-form-label ml-4">Profile Photo</label>
+    				<div class="col-md-6">
+    					<div class="input-group">
+  							<div class="custom-file">
+    							<form:input type="file" class="custom-file-input" path="profilePhoto" name="profilePhoto" aria-describedby="inputGroupFileAddon04"/>
+    							<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  							</div>
+  						</div>
+					</div>
+  				</div>
+  				
+   			 	<div class="form-group row">
+     				<label for="joinedDate" class="col-md-5 col-form-label ml-4">Joined Date</label>
+    				<div class="col-md-6">
+    					<form:input type="text" class="form-control" path="joinedDate" name="joinedDate" readonly="true"/>
+    				</div>
+    			</div>
 		
-<div class=row>	
-<div class="col-md-2 offset-3 my-5">Enter Employee ID</div>
- <div class="col-md-4 my-5">				
-	<input type="text" class="form-control" id="inputFname" placeholder="Enter ID"></div>
-	</div>
+				
+				
+				<div class="row" style="margin-top: 176px">
+					<div class="col my-5 text-center"><Span style="text-decoration: underline;"><h4>System Login Information</h4></Span></div>
+				</div>
 
-	
-	<div class="form">
-	
-	
-	<div class="row">
-	<div class="col-md-5 ml-5">
-	<img src="Images/propic.png" class="img-thumbnail rounded mx-auto d-block" style="width:60%;height: 80%">
-	</div>
-	<div class="col-md-6  my-3 ">
-	 <div class="row"><div class="col offset-4 mt-2 mb-5"><Span style="text-decoration: underline;"><h4>Personal Information</h4></Span></div></div>
-	<div class="form-group row">
-	<label for="inputFname" class="col-md-4 col-form-label ml-5">First Name</label>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div></div>
-    
-	<div class="form-group row">
-	<label for="inputFname" class="col-md-4 col-form-label ml-5">Last Name</label>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div></div>
-    <div class="form-group row">
-	<label for="inputFname" class="col-md-4 col-form-label ml-5">N.I.C NO</label>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div></div>
-    
-        <div class="form-group row">
-	<label for="inputFname" class="col-md-4 col-form-label ml-5">Marital Status</label>
-    <div class="col-md-6">
-      <div class="input-group">
-  		<select class="custom-select" id="inputGroupSelect04">
-    	<option selected>Married</option>
-	    <option value="1">Single</option>
-	    <option value="2">Divorced</option>
-	    <option value="2">Widowed</option>
-  		</select>
-    </div></div></div>
-    
-    
-    <div class="form-group row">
-	<label for="inputFname" class="col-md-4 col-form-label ml-5">Bank Account Number</label>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div></div>
-    
-    </div>
-    
-    
-    
-    
-    </div>
-    	
-	
-	<div class="row">
-	<div class="col-md-6  my-5 text-center"><Span style="text-decoration: underline;"><h4>Contact Information</h4></Span></div>
-	<div class="col-md-6  my-5 text-center"><Span style="text-decoration: underline;"><h4>Company Information</h4></Span></div>
-  
-	</div>
-	
-	<div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5" >Current Address</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
-      <label for="inputFname" class="col-md-2 col-form-label ml-5">Employee ID</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen & Cannot Change">
-    </div>
-    </div>
-  	
-	<div class="form-group row">
-    <label for="inputLname" class="col-md-2 col-form-label ml-5">Home Address</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputLname" placeholder="System Gen">
-    </div>
-     <label for="inputFname" class="col-md-2 col-form-label ml-5">Department</label>
-    <div class="col-md-3">
-    <div class="input-group">
-  		<select class="custom-select" id="inputGroupSelect04">
-    	<option selected>IT</option>
-    	<option disabled>SE</option>
-    	<option disabled>Transport</option>
-  		</select>
-    </div>
-  	</div>
-   </div>
-  	
-  	<div class="form-group row">
-    <label for="inputLname" class="col-md-2 col-form-label ml-5">City</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputLname" placeholder="System Gen">
-    </div>
-     <label for="inputFname" class="col-md-2 col-form-label ml-5">Designation</label>
-    <div class="col-md-3">
-      <div class="input-group">
-  		<select class="custom-select" id="inputGroupSelect04">
-    	<option selected>D.E.O</option>
-    	<option disabled>Technician</option>
-    	<option disabled>Driver</option>
-  		</select></div>
-    </div>
-  	</div>
-  	
-  	
-  		<div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5">Postal Code</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
-      <label for="inputFname" class="col-md-2 col-form-label ml-5">Basic Salary</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname">
-    </div>
-    </div>
-  	<div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5">Contact No 1</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
-    <label for="inputFname" class="col-md-2 col-form-label ml-5">Profile Photo</label>
-    <div class="col-md-3">
-    <div class="input-group">
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-  </div>
-
-</div>
- 
-    </div>
-    </div>
-  		<div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5">Contact No 2</label>
-      <div class="col-md-3">
-     <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
-      <label for="inputFname" class="col-md-2 col-form-label ml-5">Joined Date</label>
-    <div class="col-md-3">
-    <input type="text" class="form-control" id="inputFname" placeholder="System Gen & Cannot Change"></div>
-  </div>
-
-
- 
-    
-
-
-    <div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5">Email</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen" ></div>
-   		<label for="inputLname" class="col-md-1 col-form-label ml-5">Availability</label>
-   <div class="custom-control custom-radio custom-control-inline mt-2" style="margin-left: 130px">
-  	<input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
- 	 <label class="custom-control-label" for="customRadioInline1">In</label>
-	</div>
-	<div class="custom-control custom-radio custom-control-inline  mt-2" style="margin-left: 87px" >
-  	<input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-  	<label class="custom-control-label" for="customRadioInline2">Out</label>
-	</div>
-   
-    </div>
- 
-   
-    <div class="row">
-  	<div class="col-md-6  my-5 text-center"><Span style="text-decoration: underline;"><h4>Other Information</h4></Span></div>
-	<div class="col-md-6  my-5 text-center"><Span style="text-decoration: underline;"><h4>System Login Information</h4></Span></div>
-    </div>
-    
-    <div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5">Assigned Bike No</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
-      <label for="inputFname" class="col-md-2 col-form-label ml-5">User Name</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname">
-    </div>
-    </div>
-    
-    <div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5">Vehicle No</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen" ></div>
-      <label for="inputFname" class="col-md-2 col-form-label ml-5">Password</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname">
-    </div>
-    </div>
- 
-  	
-  	<div class="form-group row">
-	<label for="inputFname" class="col-md-2 col-form-label ml-5">Driving License</label>
-       <div class="col-md-3">
-    <div class="input-group">
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-  </div>
-
-</div>
- 
-    </div>
-  	
-  	</div>
-  	  
-      <div class="form-group row">
-      <div class="col md-5 offset-3 mt-5 ">
-      					<button type="submit" class="btn btn-primary">Update</button>
+				<div class="form-group row">
+					<label for="userName" class="col-md-5 col-form-label ml-4">User Name</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="userName" name="userName"/>
     				</div>
+    			</div>
+    
+				<div class="form-group row">
+	 				<label for="password" class="col-md-5 col-form-label ml-4">Password</label>
+    				<div class="col-md-6">
+      					<form:input type="text" class="form-control" path="password" name="password"/>
+    				</div>
+    			</div>
+			</div>
+		</div>
+	
+		<div class="form-group row">
+			
+			
+			<div class="col md-5 offset-4 mt-5">
+      			<button type="submit" class="btn btn-primary">Update</button>
+    		</div>
     				
- 	<div class="col md-5 mt-5 ">
-      					<button type="reset" class="btn btn-primary">Reset</button>
-    				</div>
-      </div>
-      <div class="form-group row">
-      <div class="col md-4  mt-5" style="margin-left: 520px">
-      					<button type="submit" class="btn btn-primary">Generate Profile PDF </button>
-     </div>
-    			
-      </div>
+    		
+      	</div>
+      	
+      	<div class="form-group row">
+      		<div class="col md-5 offset-4 mt-5">
+      			<button type="submit" class="btn btn-primary">Generate Profile PDF </button>
+     		</div>
+    	</div>
+  	</form:form>	
+  	<noscript>Enable JavaScript in your browser</noscript>
+  	<script>
+            $('#profilePhoto').on('change',function(){
+       
+                var fileName = $(this).val();
+   
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
+        
+        
+        <script type="text/javascript">
+ 
+   			$(document).ready(function() {
+			$('#validateEditForm').bootstrapValidator({
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					
+					firstName: {
+						validators: {
+							stringLength: {
+								min: 5,
+								message: 'Enter First Name with minimum 5 letters length'
+							},
+							notEmpty: {
+								message: 'Enter First name'
+							}
+						}
+					},
+					
+					lastName: {
+						validators: {
+							stringLength: {
+								min: 5,
+								message: 'Enter Last Name with minimum 5 letters length'
+							},
+							notEmpty: {
+								message: 'Enter Last name'
+							}
+						}
+					},
+		
+					
+					joinedDate: {
+						validators: {
+							notEmpty: {
+								message: 'Joined Date is required'
+							}
+						}
+					},
+		
+					
+					NIC: {
+						validators: {
+							notEmpty: {
+								message: 'N.I.C field is required'
+							}
+						}
+					},
+					
+					maritalStatus: {
+						validators: {
+							notEmpty: {
+								message: 'Marital Status field is required'
+							}
+						}
+					},
+					
+					bankAccountNo: {
+						validators: {
+							notEmpty: {
+								message: 'Bank Account Number  is required'
+							}
+						}
+					},
+					
+					currentAddress: {
+						validators: {
+							notEmpty: {
+								message: 'Current Address is required'
+							}
+						}
+					},
+					
+					homeAddress: {
+						validators: {
+							notEmpty: {
+								message: 'Home Address  is required'
+							}
+						}
+					},
+					
+					city: {
+						validators: {
+							notEmpty: {
+								message: 'City field  is required'
+							}
+						}
+					},
+					
+					
+					contactNo1: {
+						validators: {
+							notEmpty: {
+								message: 'Contact No 1 field  is required'
+							}
+						}
+					},
+					
+					contactNo2: {
+						validators: {
+							notEmpty: {
+								message: 'Contact No 2  is required'
+							}
+						}
+					},
+					
+					email: {
+						validators: {
+							notEmpty: {
+								message: 'Email field  is required'
+							}
+						}
+					},
+					
+					
+					
+					basicSalary: {
+						validators: {
+							notEmpty: {
+								message: 'Basic Salary  is required'
+							}
+						}
+					},
+					
+					
+					
+					
+					profilePhoto: {
+						validators: {
+							notEmpty: {
+								message: 'Profile Photo  is required'
+							}
+						}
+					},
+					
+					
+					postalCode: {
+						validators: {
+							notEmpty: {
+								message: 'Postal Code  is required'
+							}
+						}
+					},
+					
+					
+					
+					
+					
+					
+					}
+				});
+			});
+   			
+		</script>
   	
   	</div>
-  
+ 
+ 	<footer class="page-footer" style="background-color:#5c5d60;">
+		<div class="footer-copyright text-center py-3">Copyright © 2018  Automated Barcode Solutions (Pvt) Ltd . All rights reserved </a></div>
+  	</footer>
   	
-  </div>
-  <footer class="page-footer" style="background-color:#5c5d60;">
-	<div class="footer-copyright text-center py-3">Copyright © 2018  Automated Barcode Solutions (Pvt) Ltd . All rights reserved </a></div>
-  </footer>
 </body>
 </html>
