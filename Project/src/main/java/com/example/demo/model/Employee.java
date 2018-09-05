@@ -4,21 +4,18 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Employee implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
-
 	private int employeeId;
 	
 	@NotEmpty(message="First Name field cannot be empty")
@@ -27,8 +24,41 @@ public class Employee implements Serializable {
 	@NotEmpty(message="Last Name field cannot be empty")
 	private String lastName;
 	
-//	@NotEmpty(message="Birth Date field cannot be empty")
+	@NotEmpty(message="Birth Date field cannot be empty")
 	private Date birthDate;
+	
+	@NotEmpty(message="Leaving Date field cannot be empty")
+	private Date leavingDate;
+	
+	public Date getLeavingDate() {
+		return leavingDate;
+	}
+	public void setLeavingDate(Date leavingDate) {
+		this.leavingDate = leavingDate;
+	}
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+	public String getResignation() {
+		return resignation;
+	}
+	public void setResignation(String resignation) {
+		this.resignation = resignation;
+	}
+	public String getSpecialNotes() {
+		return specialNotes;
+	}
+	public void setSpecialNotes(String specialNotes) {
+		this.specialNotes = specialNotes;
+	}
+	private String reason;
+	
+	private String resignation;
+	
+	private String specialNotes;
 	
 	@NotEmpty(message="Gender field cannot be empty")
 	private String gender;
@@ -62,8 +92,6 @@ public class Employee implements Serializable {
 	@Email @NotEmpty(message="Email field cannot be empty")
 	private String email;
 	
-	private int departmentID;
-	
 	@NotEmpty(message="Designation field cannot be empty")
 	private String designation;
 	
@@ -79,10 +107,33 @@ public class Employee implements Serializable {
 	@NotEmpty(message="CV field cannot be empty")
 	private String cv;
 	
-	@NotEmpty(message="Photo field cannot be empty")
-	private String profilePhoto;
+	private int departmentId;
 	
-//	@NotEmpty(message="Joined Date field cannot be empty")
+	public int getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	private String departmentName;
+	
+	//@NotEmpty(message="Photo field cannot be empty")
+	private String profilePhoto;
+
+	
+	public String getProfilePhoto() {
+		return profilePhoto;
+	}
+	public void setProfilePhoto(String profilePhoto) {
+		this.profilePhoto = profilePhoto;
+	}
+	//	@NotEmpty(message="Joined Date field cannot be empty")
 	private Date joinedDate;
 	
 	@NotEmpty(message="License field cannot be empty")
@@ -153,8 +204,6 @@ public class Employee implements Serializable {
 		this.bankAccountNo = bankAccountNo;
 	}
 	
-	
-	
 	public String getCurrentAddress() {
 		return currentAddress;
 	}
@@ -197,12 +246,7 @@ public class Employee implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getDepartmentID() {
-		return departmentID;
-	}
-	public void setDepartmentID(int departmentID) {
-		this.departmentID = departmentID;
-	}
+	
 	public String getDesignation() {
 		return designation;
 	}
@@ -233,12 +277,7 @@ public class Employee implements Serializable {
 	public void setCv(String cv) {
 		this.cv = cv;
 	}
-	public String getProfilePhoto() {
-		return profilePhoto;
-	}
-	public void setProfilePhoto(String profilePhoto) {
-		this.profilePhoto = profilePhoto;
-	}
+	
 	public Date getJoinedDate() {
 		return joinedDate;
 	}

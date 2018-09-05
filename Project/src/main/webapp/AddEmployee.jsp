@@ -33,13 +33,13 @@
 						<div class="dropdown">
   							<button class="dropbtn dropdown-toggle"><a href="#" style="color: black;text-decoration: none;">Employee Management</a></button>
   							<div class="dropdown-content">
-    							<a href="AddEmployee.jsp">Add Employee</a>
-							    <a href="RemoveEmployee.jsp">Remove Employee</a>
-							    <a href="EmployeeProfile.jsp">Employee Profile</a>
+    							<a href="add">Add Employee</a>
+							    <a href="remove">Remove Employee</a>
+							    <a href="profile">Employee Profile</a>
       							<div class="dropdown-divider"></div>
-							    <a href="Payroll.jsp">Payroll System</a>
-							    <a href="Time&Attend.jsp">Time and Attendance System</a>
-							    <a href="Leave.jsp">Leaving System</a>
+							    <a href="payroll">Payroll System</a>
+							    <a href="t&a">Time and Attendance System</a>
+							    <a href="leave">Leaving System</a>
   							</div> 
   						</div>
 						<div class="dropdown">
@@ -188,7 +188,7 @@
    						<div class="form-group row">
     						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date</label>
     						<div class="col-md-6 ml-4">
-      							<input type="date" name="birthDate" class="form-control" placeholder="Date Of Birth"/>
+      							<form:input type="date" name="birthDate" path="birthDate" class="form-control" placeholder="Date Of Birth"/>
     					 	</div>
     					</div>
     					
@@ -232,26 +232,20 @@
 						 <div class="form-group row">
 							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number</label>
   							<div class="col-md-6 ml-4">
-      							<input type="text" name="bankAccountNo" class="form-control" id="bankAccountNo" />
+      							<input type="number" name="bankAccountNo" class="form-control" id="bankAccountNo" />
 							</div>
 						</div>
 				</div>
   	
   				<div class="col-md-5">
   				
-  					<div class="form-group row">
-  	 					<label for="employeeId" class="col-md-5 col-form-label ml-3">Employee ID</label>
-    					<div class="col-md-6 ml-4">
-     			 			<input type="text"  name="eId" class="form-control" value="${employeeId}" id="employeeId"/>
- 						</div>
-    				</div>
     
   					<div class="form-group row">
-  						<label for="departmentID" class="col-md-5 col-form-label ml-3">Department</label>
+  						<label for="departmentId" class="col-md-5 col-form-label ml-3">Department</label>
     					<div class="col-md-6 ml-4">
     						<div class="input-group">
-						  		<select class="custom-select" id="departmentID" name="departmentID" >
-							    	<option value="1"selected>IT</option>
+						  		<select class="custom-select" id="departmentId" name="departmentId" >
+							    	<option value="1" selected>IT</option>
 							    	<option disabled>SE</option>
 							    	<option disabled>Transport</option>
 						  		</select>
@@ -288,7 +282,7 @@
 					<div class="form-group row">
       					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary</label>
     					<div class="col-md-6 ml-4">
-      						<input type="text" name="basicSalary" class="form-control" id="basicSalary"/>
+      						<input type="number" name="basicSalary" class="form-control" id="basicSalary"/>
 						</div>
     				</div>
     
@@ -327,7 +321,7 @@
 							</div>
     					</div>
    	 				</div>
-    
+   	 			    
 					<div class="form-group row">
     					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date</label>
     					<div class="col-md-6 ml-4">
@@ -369,28 +363,28 @@
 	  				<div class="form-group row">
 						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="postalCode" class="form-control" id="pcode" />
+	      					<input type="number" name="postalCode" class="form-control" id="pcode" />
 	      				</div>
 					</div>
 	  	
 	  				<div class="form-group row">
 						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="contactNo1" class="form-control" id="cn1" />
+	      					<input type="number" name="contactNo1" class="form-control" id="cn1" />
 	      				</div>
 	  				</div>
 	  
 	  				<div class="form-group row">
 						<label for="cn2" class="col-md-5 col-form-label ml-3">Contact No 2</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="contactNo2" class="form-control" id="cn2" />
+	      					<input type="number" name="contactNo2" class="form-control" id="cn2" />
 	      				</div>
 					</div>
 					
 	  				<div class="form-group row">
 						<label for="email" class="col-md-5 col-form-label ml-3">Email</label>
 	    				<div class="col-md-6 ml-4">
-	      					<input type="text" name="email" class="form-control" id="email" />
+	      					<input type="email" name="email" class="form-control" id="email" />
 	      				</div>
 	      			</div>
 		 		</div>
@@ -412,11 +406,11 @@
     				</div>
 				</div>
 			</div>
-			
+
   			<div class="row">
       			<div class="col md-5 offset-3 mt-5 ">
       				<div class="form-actions ">
-      					<Input type="submit" value="Submit" class="btn btn-primary">
+      					<Input type="submit"  value="Submit" class="btn btn-primary">
     				</div>
     			</div>
 
@@ -427,7 +421,7 @@
 
 	
   		</form:form>
-  		
+  	
   		<script>
             $('#certificate,#cv,#photo').on('change',function(){
        
@@ -499,19 +493,17 @@
 					
 					NIC: {
 						validators: {
+							stringLength: {
+								max: 10,
+								message: 'Enter N.I.C Number with 10 letters in length'
+							},
 							notEmpty: {
 								message: 'N.I.C field is required'
 							}
 						}
 					},
 					
-					maritalStatus: {
-						validators: {
-							notEmpty: {
-								message: 'Marital Status field is required'
-							}
-						}
-					},
+					
 					
 					bankAccountNo: {
 						validators: {
@@ -523,6 +515,11 @@
 					
 					currentAddress: {
 						validators: {
+							
+							stringLength: {
+								min: 8,
+								message: 'Enter Current address with minimum 8 letters in length'
+							},
 							notEmpty: {
 								message: 'Current Address is required'
 							}
@@ -531,36 +528,39 @@
 					
 					homeAddress: {
 						validators: {
-							notEmpty: {
-								message: 'Home Address  is required'
-							}
+							stringLength: {
+								min: 8,
+								message: 'Enter home address with minimum 8 letters of length '
+							},
+							
+							
 						}
 					},
 					
 					city: {
 						validators: {
-							notEmpty: {
-								message: 'City field  is required'
-							}
+							stringLength: {
+								min: 5,
+								message: 'Enter city field with minimum 5 letters of length '
+							},
 						}
 					},
 					
 					
 					contactNo1: {
 						validators: {
+							
+							stringLength: {
+								min: 10,
+								message: 'Enter contact number with maximum 10 letters in length '
+							},
+							
 							notEmpty: {
 								message: 'Contact No 1 field  is required'
 							}
 						}
 					},
 					
-					contactNo2: {
-						validators: {
-							notEmpty: {
-								message: 'Contact No 2  is required'
-							}
-						}
-					},
 					
 					email: {
 						validators: {
@@ -585,15 +585,7 @@
 							}
 						}
 					},
-					
-					certificates: {
-						validators: {
-							notEmpty: {
-								message: 'Certificate  is required'
-							}
-						}
-					},
-					
+										
 					cv: {
 						validators: {
 							notEmpty: {
@@ -1731,7 +1723,7 @@
 	 </div>
 	 
 	  <footer class="page-footer" style="background-color:#5c5d60;">
-		<div class="footer-copyright text-center py-3">Copyright © 2018  Automated Barcode Solutions (Pvt) Ltd . All rights reserved </a></div>
+		<div class="footer-copyright text-center py-3">Copyright Â© 2018  Automated Barcode Solutions (Pvt) Ltd . All rights reserved </a></div>
 	  </footer>
  </body>
 </html>

@@ -27,13 +27,13 @@
 						<div class="dropdown">
   							<button class="dropbtn dropdown-toggle"><a href="#" style="color: black;text-decoration: none;">Employee Management</a></button>
   							<div class="dropdown-content">
-    							<a href="AddEmployee.jsp">Add Employee</a>
-							    <a href="RemoveEmployee.jsp">Remove Employee</a>
-							    <a href="EmployeeProfile.jsp">Employee Profile</a>
+    							<a href="add">Add Employee</a>
+							    <a href="remove">Remove Employee</a>
+							    <a href="profile">Employee Profile</a>
       							<div class="dropdown-divider"></div>
-							    <a href="Payroll.jsp">Payroll System</a>
-							    <a href="Time&Attend.jsp">Time and Attendance System</a>
-							    <a href="Leave.jsp">Leaving System</a>
+							    <a href="payroll">Payroll System</a>
+							    <a href="t&a">Time and Attendance System</a>
+							    <a href="leave">Leaving System</a>
   							</div> 
   						</div>
 						<div class="dropdown">
