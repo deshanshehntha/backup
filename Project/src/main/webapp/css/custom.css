@@ -3,7 +3,8 @@
 body
 	{
 		font-family: Georgia;
-		background-color: #f1f1f1; 
+		/*background-color: #f1f1f1;*/ 
+		background-color: #ccccff;
 
 	}
 
@@ -105,5 +106,10 @@ body
     color:  #33b5e5;
 }	
 	
+.glyphicon.glyphicon-star{
+	color:#ff4c4c;
+	font-size:10px;
+	margin-left:15px;
 	
+}
 	

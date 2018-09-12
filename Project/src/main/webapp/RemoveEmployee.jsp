@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	<div class="container-fluid" style="height: 1250px">
+	<div class="container-fluid" style="height: 1350px">
 		<div class="row" >
 			<div class="header">
 				<img src="Images/logo.PNG" style="width:12%;margin-left: 2%">
@@ -140,21 +140,21 @@
 	<form:form method="POST" action="empRemove"  modelAttribute="remployee" id="validateRemoveForm">
 	
 		<div class="form-group row">
-			<label for="inputFname" class="col-md-3 col-form-label offset-3">Employee ID</label>
+			<label for="inputFname" class="col-md-3 col-form-label offset-3">Employee ID<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
-      			<form:input type="number" class="form-control" path="employeeId" name="employeeId" readonly="true" placeholder="System Generated"/>
+      		<form:input type="number" class="form-control" path="employeeId" name="employeeId" readonly="true" placeholder="System Generated"/>
       		</div>
   		</div>
   			
   		<div class="form-group row">
-			<label for="inputFname" class="col-md-3 col-form-label offset-3">First Name</label>
+			<label for="inputFname" class="col-md-3 col-form-label offset-3">First Name<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" name="firstName" path="firstName" readonly="true" id="firstName" placeholder="System Generated"/>
       		</div>
 	 	</div>
   	
   		<div class="form-group row">
-			<label for="inputFname" class="col-md-3 col-form-label offset-3">Contact No</label>
+			<label for="inputFname" class="col-md-3 col-form-label offset-3">Contact No<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" path="contactNo1" readonly="true" name="contactNo1" id="contactNo1" placeholder="System Generated"/>
       		</div>
@@ -162,35 +162,35 @@
   	
   	
 		<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Registered Date</label>
+    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Registered Date<span class="glyphicon glyphicon-star"></span></label>
    			 <div class="col-md-3">
       				<form:input type="text" class="form-control" readonly="true" path="joinedDate" name="joinedDate" id="joinedDate" placeholder="System Generated"/>
     		</div>
 		</div>
 		
 	 	<div class="form-group row">
-   		 	<label for="inputLname" class="col-md-3 col-form-label  offset-3">Designation</label>
+   		 	<label for="inputLname" class="col-md-3 col-form-label  offset-3">Designation<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" path="designation" readonly="true" name="designation" id="inputLname" placeholder="System Generated"/>
     		</div>
 	 	</div>
 	 	
 	 	<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Department</label>
+    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Department<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" path= "departmentName" readonly="true" name="departmentName" id="departmentName" placeholder="System Generated"/>
     		</div>
 	 	</div>
 	 
 	 	<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Leaving Date</label>
+    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Leaving Date<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="date"  path="leavingDate" class="form-control"  id="leaveDate" />
     		</div>
 	 	</div>
 	 
 	 	<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Leaving Reason</label>
+    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Leaving Reason<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control"  path="reason" id="reason"/>
     		</div>
@@ -248,6 +248,46 @@
 					validating: 'glyphicon glyphicon-refresh'
 				},
 				fields: {
+					
+					
+					firstName: {
+						validators: {
+							notEmpty: {
+								message: 'First Name cannot be Empty'
+							}
+						}
+					},
+					contactNo1: {
+						validators: {
+							notEmpty: {
+								message: 'Contact Number cannot be Empty'
+							}
+						}
+					},
+					
+					joinedDate: {
+						validators: {
+							notEmpty: {
+								message: 'Registered Date cannot be Empty'
+							}
+						}
+					},	
+					
+					designation: {
+						validators: {
+							notEmpty: {
+								message: 'Reason cannot be Empty'
+							}
+						}
+					},	
+					
+					department: {
+						validators: {
+							notEmpty: {
+								message: 'Reason cannot be Empty'
+							}
+						}
+					},	
 					
 					reason: {
 						validators: {

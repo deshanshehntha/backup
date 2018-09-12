@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<div class="container-fluid" style="height: 1850px">
+	<div class="container-fluid" style="height: 2000px">
 		<div class="row" >
 			<div class="header">
 				<img src="Images/logo.PNG" style="width:12%;margin-left: 2%">

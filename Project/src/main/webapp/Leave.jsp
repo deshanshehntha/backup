@@ -11,16 +11,18 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/glyphican.css">
 	<link rel="stylesheet" href="css/jquery.datetimepicker.min.css">
     <script src="js/jquery.js"></script>
     <script src="js/proper.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrapValidator.js"></script>
 	<script src="js/jquery.datetimepicker.full.js"></script>	
 	<title>Leave</title>
 </head>
 
 <body>
-	<div class="container-fluid" style="height: 1400px">
+	<div class="container-fluid" style="height: 1600px">
 		<div class="row" >
 			<div class="header">
 				<img src="Images/logo.PNG" style="width:12%;margin-left: 2%">
@@ -135,7 +137,7 @@
 		</div>
 	</form>
 	
-	<form:form method="POST" action="leaveEmployee"  modelAttribute="lemployee">
+	<form:form method="POST" action="leaveEmployee" id="leaveEmp" modelAttribute="lemployee">
 	<div class="form">
 	
 	<div class="row">
@@ -144,29 +146,29 @@
 	</div>
 
    <div class="form-group row">
-	<label for="employeeId" class="col-md-3 col-form-label" style="margin-left: 350px">Employee ID</label>
+	<label for="employeeId" class="col-md-3 col-form-label" style="margin-left: 350px">Employee ID<span class="glyphicon glyphicon-star"></span></label>
     <div class="col-md-3">
       <form:input type="text" class="form-control" id="employeeId" path="employeeId" name="employeeId" placeholder="System Gen" readonly="true"/></div>
    </div>
 	
 	<div class="form-group row">
-	<label for="firstName" class="col-md-3 col-form-label" style="margin-left: 350px">First Name</label>
+	<label for="firstName" class="col-md-3 col-form-label" style="margin-left: 350px">First Name<span class="glyphicon glyphicon-star"></span></label>
     <div class="col-md-3">
       <form:input type="text" class="form-control" id="firstName" name="firstName" path="firstName" placeholder="System Gen" readonly="true"/></div>
    </div>
    
    <div class="form-group row">
-	<label for="lastName" class="col-md-3 col-form-label" style="margin-left: 350px">Last Name</label>
+	<label for="lastName" class="col-md-3 col-form-label" style="margin-left: 350px">Last Name<span class="glyphicon glyphicon-star"></span></label>
     <div class="col-md-3">
       <form:input type="text" class="form-control" id="lasttName" name="lastName" path="lastName" placeholder="System Gen" readonly="true"/></div>
    </div>
    <div class="form-group row">
-	<label for="departmentName" class="col-md-3 col-form-label" style="margin-left: 350px">Department Name</label>
+	<label for="departmentName" class="col-md-3 col-form-label" style="margin-left: 350px">Department Name<span class="glyphicon glyphicon-star"></span></label>
     <div class="col-md-3">
       <form:input type="text" class="form-control" id="department" name="departmentName"  path="departmentName" placeholder="System Gen" readonly="true"/></div>
    </div>
    <div class="form-group row">
-	<label for="designation" class="col-md-3 col-form-label" style="margin-left: 350px">Designation</label>
+	<label for="designation" class="col-md-3 col-form-label" style="margin-left: 350px">Designation<span class="glyphicon glyphicon-star"></span></label>
     <div class="col-md-3">
       <form:input type="text" class="form-control" id="designation" name="designation" path="designation" placeholder="System Gen" readonly="true"/></div>
    </div>
@@ -176,25 +178,28 @@
 
 	</div>
   	<div class="form-group row my-3">
-  
-   <div class="col-1 custom-control custom-radio custom-control-inline" style="margin-left: 450px">
+  	
+  	<div class="col-md-6 offset-4 ">
+  	<div class="input-group">
+  	<div class="row"><span class="glyphicon glyphicon-star"></span>
+   <div class="col-md-2 custom-control custom-radio custom-control-inline">
   	<input type="radio" id="customRadioInline1" value="Annual" name="leaveType" class="custom-control-input">
  	 <label class="custom-control-label" for="customRadioInline1">Annual</label>
 	</div>
-	<div class="col-1 custom-control custom-radio custom-control-inline " >
+	<div class="col-md-2 custom-control custom-radio custom-control-inline ml-2" >
   	<input type="radio" id="customRadioInline2" value="Medical" name="leaveType" class="custom-control-input">
   	<label class="custom-control-label" for="customRadioInline2">Medical</label>
 	</div>
-	<div class="col-1 custom-control custom-radio custom-control-inline"  >
+	<div class="col-md-3 custom-control custom-radio custom-control-inline ml-2"  >
   	<input type="radio" id="customRadioInline3" name="leaveType" value="Half Day" class="custom-control-input">
   	<label class="custom-control-label" for="customRadioInline3">Half Day</label>
 	</div>
-	<div class="col-1 custom-control custom-radio custom-control-inline" >
+	<div class="col-md-2 custom-control custom-radio custom-control-inline ml-2" >
   	<input type="radio" id="customRadioInline4" name="leaveType" value="Other" class="custom-control-input">
   	<label class="custom-control-label" for="customRadioInline4">Other</label>
-	</div>   
+	</div> </div>  
+  	</div></div>
   	</div>
-  	
  
  	<div class="row">
 	<div class="col text-center my-4"><Span style="text-decoration: underline;"><h4>Leaving Information</h4></Span></div>
@@ -208,20 +213,21 @@
    </div>
    
    <div class="form-group row">
-	<label for="leaveRequestedDate" class="col-md-3 col-form-label" style="margin-left: 350px">Requested Date</label>
+	<label for="leaveRequestedDate" class="col-md-3 col-form-label" style="margin-left: 350px">Requested Date<span class="glyphicon glyphicon-star"></span></label>
     <div class="col-md-3">
       <form:input type="date" class="form-control" id="leaveRequestedDate" path="leaveRequestedDate" name="leaveRequestedDate" placeholder="System Date"/></div>
    </div>
 	
 	<div class="form-group row">
-	<label for="leaveStartDate" class="col-md-3 col-form-label" style="margin-left: 350px">From</label>
+	<label for="leaveStartDate" class="col-md-3 col-form-label" style="margin-left: 350px">From<span class="glyphicon glyphicon-star"></span></label>
     <div class="col-md-3">
       <form:input type="text" class="form-control" path="leaveStartDate" name="leaveStartDate" id="leaveStartDate"/></div>
  
     </div>
    
     <div class="form-group row">
-	<label for="leaveEndDate" class="col-md-3 col-form-label" style="margin-left: 350px">To</label>
+	<label for="leaveEndDate" class="col-md-3 col-form-label" style="margin-left: 350px">To<span class="glyphicon glyphicon-star"></span></label>
+	
     <div class="col-md-3">
       <form:input type="text" class="form-control" path="leaveEndDate" name="leaveEndDate" id="leaveEndDate"/></div>
 	 </div>
@@ -248,6 +254,112 @@
 	$("#leaveEndDate").datetimepicker();
 
 </script>
+
+<script type="text/javascript">
+ 
+   			$(document).ready(function() {
+			$('#leaveEmp').bootstrapValidator({
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+						employeeId: {
+						validators: {
+							
+							notEmpty: {
+								message: 'Employee ID is required'
+							},
+		
+						}
+					},
+					
+					firstName: {
+						validators: {
+							
+							notEmpty: {
+								message: 'Enter First name'
+							},
+		
+						}
+					},
+					
+					lastName: {
+						validators: {
+							
+							notEmpty: {
+								message: 'Enter Last name'
+							},
+						}
+					},
+
+
+					
+					departmentName: {
+						validators: {
+							notEmpty: {
+								message: 'Department Name  is required'
+							}
+						}
+					},
+					
+					designation: {
+						validators: {
+							notEmpty: {
+								message: 'Designation  is required'
+							}
+						}
+					},
+					
+					leaveType: {
+						validators: {
+							notEmpty: {
+								message: 'Leave Type  is required'
+							}
+						}
+					},
+					
+					leaveRequestedDate: {
+						validators: {
+							notEmpty: {
+								message: 'Requested Date  is required'
+							}
+						}
+					},
+					
+					leaveStartDate: {
+						validators: {
+							notEmpty: {
+								message: 'Start Date and Time  is required'
+							}
+						}
+					},
+					
+					leaveEndDate: {
+						validators: {
+							notEmpty: {
+								message: 'End Date and Time  is required'
+							}
+						}
+					},
+					
+					
+					},
+				
+				onSuccess: function(e, data) {
+	                  
+                    alert('Leaving form uploaded Successfully !!!');
+                }
+				
+				
+				});
+			});
+   			
+		</script>
+		
+
+
   </div>
   <footer class="page-footer" style="background-color:#5c5d60;">
 	<div class="footer-copyright text-center py-3">Copyright © 2018  Automated Barcode Solutions (Pvt) Ltd . All rights reserved </a></div>

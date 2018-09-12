@@ -166,7 +166,7 @@
 				<div class="col-md-5 offset-1">
 				
 						<div class="form-group row">
-							<label for="firstName" class="col-md-5 col-form-label ml-3">First Name</label>
+							<label for="firstName" class="col-md-5 col-form-label ml-3">First Name<span class="glyphicon glyphicon-star"></span></label>
 							<div class="col-md-6 ml-4">
 								<form:input type="text" name="firstName" path="firstName" class="form-control" id="firstName" placeholder="First Name" />
 								<div class="has-error">
@@ -176,7 +176,7 @@
 						</div>
 
 						<div class="form-group row">
-    						<label for="lastName" class="col-md-5 col-form-label ml-3">Last Name</label>
+    						<label for="lastName" class="col-md-5 col-form-label ml-3">Last Name<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<form:input type="text"  name="lastName" path="lastName" class="form-control" id="lastName" placeholder="Last Name"/>
 								<div class="has-error">
@@ -187,14 +187,14 @@
 						</div>
    
    						<div class="form-group row">
-    						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date</label>
+    						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<form:input type="date" name="birthDate" path="birthDate" class="form-control" placeholder="Date Of Birth"/>
     					 	</div>
     					</div>
     					
    						<div class="form-group row">
-							<label for="gender" class="col-md-5 col-form-label ml-3">Gender</label>
+							<label for="gender" class="col-md-5 col-form-label ml-3">Gender<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
   								<div class="input-group">
 	   								<div class="custom-control custom-radio custom-control-inline mt-2">
@@ -210,7 +210,7 @@
     					</div>
     					
    						<div class="form-group row">
-							<label for="NIC" class="col-md-5 col-form-label ml-3">N.I.C NO</label>
+							<label for="NIC" class="col-md-5 col-form-label ml-3">N.I.C NO<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<input type="text" name="NIC" class="form-control" id="NIC" placeholder="960662770V"/>
 				 			</div>
@@ -231,7 +231,7 @@
     					</div>
     
 						 <div class="form-group row">
-							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number</label>
+							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
       							<input type="number" name="bankAccountNo" class="form-control" id="bankAccountNo" />
 							</div>
@@ -242,7 +242,7 @@
   				
     
   					<div class="form-group row">
-  						<label for="departmentId" class="col-md-5 col-form-label ml-3">Department</label>
+  						<label for="departmentId" class="col-md-5 col-form-label ml-3">Department<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
     						<div class="input-group">
 						  		<select class="custom-select" id="departmentId" name="departmentId" >
@@ -255,7 +255,7 @@
 					</div>
 
 					<div class="form-group row">
-     					<label for="designation" class="col-md-5 col-form-label ml-3">Designation</label>
+     					<label for="designation" class="col-md-5 col-form-label ml-3">Designation<span class="glyphicon glyphicon-star"></span></label>
    						<div class="col-md-6 ml-4">
       						<div class="input-group">
 						  		<select class="custom-select form-control" name="designation" id="designation">
@@ -268,7 +268,7 @@
   					</div>
   					
 					<div class="form-group row">
-     					<label for="exlevel" class="col-md-5 col-form-label ml-3">Experienced Level</label>
+     					<label for="exlevel" class="col-md-5 col-form-label ml-3">Experienced Level<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<div class="input-group">
 						  		<select class="custom-select" name="experiencedLevel" id="exlevel">
@@ -281,7 +281,7 @@
   					</div>
 
 					<div class="form-group row">
-      					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary</label>
+      					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="text" name="basicSalary" class="form-control" id="basicSalary"/>
 						</div>
@@ -300,7 +300,7 @@
     				</div>
     
 					<div class="form-group row">
-      					<label for="cv" class="col-md-5 col-form-label ml-3">Curriculum Vitae</label>
+      					<label for="cv" class="col-md-5 col-form-label ml-3">Curriculum Vitae<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<div class="input-group">
   								<div class="custom-file">
@@ -312,7 +312,7 @@
     				</div>
     
 					<div class="form-group row">
-    					<label for="photo2" class="col-md-5 col-form-label ml-3">Profile Photo</label>
+    					<label for="photo2" class="col-md-5 col-form-label ml-3">Profile Photo<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
         					<div class="input-group">
   								<div class="custom-file">
@@ -329,7 +329,7 @@
 	      	</div>
    	 	   
 					<div class="form-group row">
-    					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date</label>
+    					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="date" class="form-control" name="joinedDate" />
     					</div>
@@ -349,7 +349,7 @@
 				<div class="col-md-5 offset-1"> 
 
 					<div class="form-group row">
-						<label for="cAddress" class="col-md-5 col-form-label ml-3">Current Address</label>
+						<label for="cAddress" class="col-md-5 col-form-label ml-3">Current Address<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="text" name="currentAddress" class="form-control" id="caAddress" />
 	      				</div>
@@ -370,14 +370,14 @@
 					</div>
 	  	
 	  				<div class="form-group row">
-						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code</label>
+						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="number" name="postalCode" class="form-control" id="pcode" />
 	      				</div>
 					</div>
 	  	
 	  				<div class="form-group row">
-						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1</label>
+						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="number" name="contactNo1" class="form-control" id="cn1" />
 	      				</div>
@@ -391,7 +391,7 @@
 					</div>
 					
 	  				<div class="form-group row">
-						<label for="email" class="col-md-5 col-form-label ml-3">Email</label>
+						<label for="email" class="col-md-5 col-form-label ml-3">Email<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="email" name="email" class="form-control" id="email" />
 	      				</div>
@@ -401,14 +401,14 @@
 				<div class="col-md-5">
 				
 					<div class="form-group row">
-      					<label for="uName" class="col-md-5 col-form-label ml-3">User Name</label>
+      					<label for="uName" class="col-md-5 col-form-label ml-3">User Name<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="text"  name="userName" class="form-control" id="uName"/>
     					</div>
     				</div>
     
     				<div class="form-group row">
-      					<label for="pass" class="col-md-5 col-form-label ml-3">Password</label>
+      					<label for="pass" class="col-md-5 col-form-label ml-3">Password<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="text" name="password" class="form-control" id="pass"/>
     					</div>
@@ -431,7 +431,7 @@
 				
   		</form:form>
   		<script>
-            $('#certificate,#cv,#photo2').on('change',function(){
+            $('#certificate,#cv,#photo3').on('change',function(){
        
                 var fileName = $(this).val();
    
@@ -797,7 +797,7 @@
 				<div class="col-md-5 offset-1">
 				
 						<div class="form-group row">
-							<label for="firstName" class="col-md-5 col-form-label ml-3">First Name</label>
+							<label for="firstName" class="col-md-5 col-form-label ml-3">First Name<span class="glyphicon glyphicon-star"></span></label>
 							<div class="col-md-6 ml-4">
 								<form:input type="text" name="firstName" path="firstName" class="form-control" id="firstName" placeholder="First Name" />
 								<div class="has-error">
@@ -807,7 +807,7 @@
 						</div>
 
 						<div class="form-group row">
-    						<label for="lastName" class="col-md-5 col-form-label ml-3">Last Name</label>
+    						<label for="lastName" class="col-md-5 col-form-label ml-3">Last Name<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<form:input type="text"  name="lastName" path="lastName" class="form-control" id="lastName" placeholder="Last Name"/>
 								<div class="has-error">
@@ -818,14 +818,14 @@
 						</div>
    
    						<div class="form-group row">
-    						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date</label>
+    						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<form:input type="date" name="birthDate" path="birthDate" class="form-control" placeholder="Date Of Birth"/>
     					 	</div>
     					</div>
     					
    						<div class="form-group row">
-							<label for="gender" class="col-md-5 col-form-label ml-3">Gender</label>
+							<label for="gender" class="col-md-5 col-form-label ml-3">Gender<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
   								<div class="input-group">
 	   								<div class="custom-control custom-radio custom-control-inline mt-2">
@@ -841,7 +841,7 @@
     					</div>
     					
    						<div class="form-group row">
-							<label for="NIC" class="col-md-5 col-form-label ml-3">N.I.C NO</label>
+							<label for="NIC" class="col-md-5 col-form-label ml-3">N.I.C NO<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<input type="text" name="NIC" class="form-control" id="NIC" placeholder="960662770V"/>
 				 			</div>
@@ -862,7 +862,7 @@
     					</div>
     
 						 <div class="form-group row">
-							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number</label>
+							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
       							<input type="number" name="bankAccountNo" class="form-control" id="bankAccountNo" />
 							</div>
@@ -873,7 +873,7 @@
   				
     
   					<div class="form-group row">
-  						<label for="departmentId" class="col-md-5 col-form-label ml-3">Department</label>
+  						<label for="departmentId" class="col-md-5 col-form-label ml-3">Department<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
     						<div class="input-group">
 						  		<select class="custom-select" id="departmentId" name="departmentId" >
@@ -886,7 +886,7 @@
 					</div>
 
 					<div class="form-group row">
-     					<label for="designation" class="col-md-5 col-form-label ml-3">Designation</label>
+     					<label for="designation" class="col-md-5 col-form-label ml-3">Designation<span class="glyphicon glyphicon-star"></span></label>
    						<div class="col-md-6 ml-4">
       						<div class="input-group">
 						  		<select class="custom-select form-control" name="designation" id="designation">
@@ -899,7 +899,7 @@
   					</div>
   					
 					<div class="form-group row">
-     					<label for="exlevel" class="col-md-5 col-form-label ml-3">Experienced Level</label>
+     					<label for="exlevel" class="col-md-5 col-form-label ml-3">Experienced Level<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<div class="input-group">
 						  		<select class="custom-select" name="experiencedLevel" id="exlevel">
@@ -912,7 +912,7 @@
   					</div>
 
 					<div class="form-group row">
-      					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary</label>
+      					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="text" name="basicSalary" class="form-control" id="basicSalary"/>
 						</div>
@@ -931,7 +931,7 @@
     				</div>
     
 					<div class="form-group row">
-      					<label for="cv" class="col-md-5 col-form-label ml-3">Curriculum Vitae</label>
+      					<label for="cv" class="col-md-5 col-form-label ml-3">Curriculum Vitae<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<div class="input-group">
   								<div class="custom-file">
@@ -943,11 +943,11 @@
     				</div>
     
 					<div class="form-group row">
-    					<label for="photo2" class="col-md-5 col-form-label ml-3">Profile Photo</label>
+    					<label for="photo3" class="col-md-5 col-form-label ml-3">Profile Photo<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
         					<div class="input-group">
   								<div class="custom-file">
-    								<input type="file" name="profilePhoto2" class="custom-file-input" id="photo2" accept="image/png" aria-describedby="inputGroupFileAddon04"/>
+    								<input type="file" name="profilePhoto3" class="custom-file-input" id="photo3" accept="image/png" aria-describedby="inputGroupFileAddon04"/>
     								<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
   								</div>
 							</div>
@@ -955,12 +955,12 @@
    	 				
    	 			   
 	    					<div class="col">
-	      							<input  type="hidden" name="profilePhoto" class="form-control" id="photo" >
+	      							<input  type="hidden" name="profilePhoto" class="form-control" id="photoo" >
 	      					</div>
 	      	</div>
    	 	   
 					<div class="form-group row">
-    					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date</label>
+    					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="date" class="form-control" name="joinedDate" />
     					</div>
@@ -980,7 +980,7 @@
 				<div class="col-md-5 offset-1"> 
 
 					<div class="form-group row">
-						<label for="cAddress" class="col-md-5 col-form-label ml-3">Current Address</label>
+						<label for="cAddress" class="col-md-5 col-form-label ml-3">Current Address<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="text" name="currentAddress" class="form-control" id="caAddress" />
 	      				</div>
@@ -1001,14 +1001,14 @@
 					</div>
 	  	
 	  				<div class="form-group row">
-						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code</label>
+						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="number" name="postalCode" class="form-control" id="pcode" />
 	      				</div>
 					</div>
 	  	
 	  				<div class="form-group row">
-						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1</label>
+						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="number" name="contactNo1" class="form-control" id="cn1" />
 	      				</div>
@@ -1022,7 +1022,7 @@
 					</div>
 					
 	  				<div class="form-group row">
-						<label for="email" class="col-md-5 col-form-label ml-3">Email</label>
+						<label for="email" class="col-md-5 col-form-label ml-3">Email<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="email" name="email" class="form-control" id="email" />
 	      				</div>
@@ -1032,7 +1032,7 @@
 				<div class="col-md-5">
 				
 					<div class="form-group row">
-    					<label for="drivingLicense" class="col-md-5 col-form-label ml-3">Driving License</label>
+    					<label for="drivingLicense" class="col-md-5 col-form-label ml-3">Driving License<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
         					<div class="input-group">
   								<div class="custom-file">
@@ -1044,14 +1044,14 @@
    	 				</div>
     
     				<div class="form-group row">
-      					<label for="VehicleNo" class="col-md-5 col-form-label ml-3">Vehicle Reg No</label>
+      					<label for="VehicleNo" class="col-md-5 col-form-label ml-3">Vehicle Reg No<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="text" class="form-control" name="VehicleNo" id="VehicleNo"/>
     					</div>
     				</div>
     				
     				<div class="form-group row">
-							<label for="availability" class="col-md-5 col-form-label ml-3">Availability</label>
+							<label for="availability" class="col-md-5 col-form-label ml-3">Availability<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
   								<div class="input-group">
 	   								<div class="custom-control custom-radio custom-control-inline mt-2">
@@ -1083,7 +1083,7 @@
 				
   		</form:form>
   		<script>
-            $('#certificate,#cv,#photo2,#drivingLicense').on('change',function(){
+            $('#certificate,#cv,#photo3,#drivingLicense').on('change',function(){
        
                 var fileName = $(this).val();
    
@@ -1096,9 +1096,9 @@
   			$(document).ready(function()
   			{
   			
-  				$("#photo2").change(function()
+  				$("#photo3").change(function()
   				{
-  					var  fileSelected = document.getElementById("photo2").files;
+  					var  fileSelected = document.getElementById("photo3").files;
   					if(fileSelected.length>0)
   					{
 					var fileToLoad= fileSelected[0];
@@ -1109,7 +1109,7 @@
   						var base64value = fileLoadedEvent.target.result;
 						var base64value = base64value.replace("data:image/png;base64,","");
   						console.log(base64value);
-  						$('#photo').val(base64value);
+  						$('#photoo').val(base64value);
 					};
 				
   					fileReader.readAsDataURL(fileToLoad);
@@ -1331,7 +1331,7 @@
 						}
 					},
 					
-					profilePhoto2: {
+					profilePhoto3: {
 						validators: {
 							notEmpty: {
 								message: 'Profile Photo  is required'
@@ -1446,7 +1446,7 @@
 				<div class="col-md-5 offset-1">
 				
 						<div class="form-group row">
-							<label for="firstName" class="col-md-5 col-form-label ml-3">First Name</label>
+							<label for="firstName" class="col-md-5 col-form-label ml-3">First Name<span class="glyphicon glyphicon-star"></span></label>
 							<div class="col-md-6 ml-4">
 								<form:input type="text" name="firstName" path="firstName" class="form-control" id="firstName" placeholder="First Name" />
 								<div class="has-error">
@@ -1456,7 +1456,7 @@
 						</div>
 
 						<div class="form-group row">
-    						<label for="lastName" class="col-md-5 col-form-label ml-3">Last Name</label>
+    						<label for="lastName" class="col-md-5 col-form-label ml-3">Last Name<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<form:input type="text"  name="lastName" path="lastName" class="form-control" id="lastName" placeholder="Last Name"/>
 								<div class="has-error">
@@ -1467,14 +1467,14 @@
 						</div>
    
    						<div class="form-group row">
-    						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date</label>
+    						<label for="datetime1" class="col-md-5 col-form-label ml-3">Birth Date<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<form:input type="date" name="birthDate" path="birthDate" class="form-control" placeholder="Date Of Birth"/>
     					 	</div>
     					</div>
     					
    						<div class="form-group row">
-							<label for="gender" class="col-md-5 col-form-label ml-3">Gender</label>
+							<label for="gender" class="col-md-5 col-form-label ml-3">Gender<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
   								<div class="input-group">
 	   								<div class="custom-control custom-radio custom-control-inline mt-2">
@@ -1490,7 +1490,7 @@
     					</div>
     					
    						<div class="form-group row">
-							<label for="NIC" class="col-md-5 col-form-label ml-3">N.I.C NO</label>
+							<label for="NIC" class="col-md-5 col-form-label ml-3">N.I.C NO<span class="glyphicon glyphicon-star"></span></label>
     						<div class="col-md-6 ml-4">
       							<input type="text" name="NIC" class="form-control" id="NIC" placeholder="960662770V"/>
 				 			</div>
@@ -1511,7 +1511,7 @@
     					</div>
     
 						 <div class="form-group row">
-							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number</label>
+							<label for="bankAccountNo" class="col-md-5 col-form-label ml-3">Bank Account Number<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
       							<input type="number" name="bankAccountNo" class="form-control" id="bankAccountNo" />
 							</div>
@@ -1522,7 +1522,7 @@
   				
     
   					<div class="form-group row">
-  						<label for="departmentId" class="col-md-5 col-form-label ml-3">Department</label>
+  						<label for="departmentId" class="col-md-5 col-form-label ml-3">Department<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
     						<div class="input-group">
 						  		<select class="custom-select" id="departmentId" name="departmentId" >
@@ -1535,7 +1535,7 @@
 					</div>
 
 					<div class="form-group row">
-     					<label for="designation" class="col-md-5 col-form-label ml-3">Designation</label>
+     					<label for="designation" class="col-md-5 col-form-label ml-3">Designation<span class="glyphicon glyphicon-star"></span></label>
    						<div class="col-md-6 ml-4">
       						<div class="input-group">
 						  		<select class="custom-select form-control" name="designation" id="designation">
@@ -1548,7 +1548,7 @@
   					</div>
   					
 					<div class="form-group row">
-     					<label for="exlevel" class="col-md-5 col-form-label ml-3">Experienced Level</label>
+     					<label for="exlevel" class="col-md-5 col-form-label ml-3">Experienced Level<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<div class="input-group">
 						  		<select class="custom-select" name="experiencedLevel" id="exlevel">
@@ -1561,7 +1561,7 @@
   					</div>
 
 					<div class="form-group row">
-      					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary</label>
+      					<label for="basicSalary" class="col-md-5 col-form-label ml-3">Basic Salary<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="text" name="basicSalary" class="form-control" id="basicSalary"/>
 						</div>
@@ -1580,7 +1580,7 @@
     				</div>
     
 					<div class="form-group row">
-      					<label for="cv" class="col-md-5 col-form-label ml-3">Curriculum Vitae</label>
+      					<label for="cv" class="col-md-5 col-form-label ml-3">Curriculum Vitae<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<div class="input-group">
   								<div class="custom-file">
@@ -1592,11 +1592,11 @@
     				</div>
     
 					<div class="form-group row">
-    					<label for="photo2" class="col-md-5 col-form-label ml-3">Profile Photo</label>
+    					<label for="photo4" class="col-md-5 col-form-label ml-3">Profile Photo<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
         					<div class="input-group">
   								<div class="custom-file">
-    								<input type="file" name="profilePhoto2" class="custom-file-input" id="photo2" accept="image/png" aria-describedby="inputGroupFileAddon04"/>
+    								<input type="file" name="profilePhoto4" class="custom-file-input" id="photo4" accept="image/png" aria-describedby="inputGroupFileAddon04"/>
     								<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
   								</div>
 							</div>
@@ -1604,12 +1604,12 @@
    	 				
    	 			   
 	    					<div class="col">
-	      							<input  type="hidden" name="profilePhoto" class="form-control" id="photo" >
+	      							<input  type="hidden" name="profilePhoto" class="form-control" id="photooo" >
 	      					</div>
 	      	</div>
    	 	   
 					<div class="form-group row">
-    					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date</label>
+    					<label for="datetime2" class="col-md-5 col-form-label ml-3">Joined Date<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="date" class="form-control" name="joinedDate" />
     					</div>
@@ -1629,7 +1629,7 @@
 				<div class="col-md-5 offset-1"> 
 
 					<div class="form-group row">
-						<label for="cAddress" class="col-md-5 col-form-label ml-3">Current Address</label>
+						<label for="cAddress" class="col-md-5 col-form-label ml-3">Current Address<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="text" name="currentAddress" class="form-control" id="caAddress" />
 	      				</div>
@@ -1650,14 +1650,14 @@
 					</div>
 	  	
 	  				<div class="form-group row">
-						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code</label>
+						<label for="pcode" class="col-md-5 col-form-label ml-3">Postal Code<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="number" name="postalCode" class="form-control" id="pcode" />
 	      				</div>
 					</div>
 	  	
 	  				<div class="form-group row">
-						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1</label>
+						<label for="cn1" class="col-md-5 col-form-label ml-3">Contact No 1<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="number" name="contactNo1" class="form-control" id="cn1" />
 	      				</div>
@@ -1671,7 +1671,7 @@
 					</div>
 					
 	  				<div class="form-group row">
-						<label for="email" class="col-md-5 col-form-label ml-3">Email</label>
+						<label for="email" class="col-md-5 col-form-label ml-3">Email<span class="glyphicon glyphicon-star"></span></label>
 	    				<div class="col-md-6 ml-4">
 	      					<input type="email" name="email" class="form-control" id="email" />
 	      				</div>
@@ -1681,7 +1681,7 @@
 				<div class="col-md-5">
 				
 					<div class="form-group row">
-    					<label for="drivingLicense" class="col-md-5 col-form-label ml-3">Driving License</label>
+    					<label for="drivingLicense" class="col-md-5 col-form-label ml-3">Driving License<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
         					<div class="input-group">
   								<div class="custom-file">
@@ -1693,14 +1693,14 @@
    	 				</div>
     
     				<div class="form-group row">
-      					<label for="bikeNo" class="col-md-5 col-form-label ml-3">Assigned Bike No</label>
+      					<label for="bikeNo" class="col-md-5 col-form-label ml-3">Assigned Bike No<span class="glyphicon glyphicon-star"></span></label>
     					<div class="col-md-6 ml-4">
       						<input type="text" class="form-control" name="bikeNo" id="bikeNo"/>
     					</div>
     				</div>
     				
     				<div class="form-group row">
-							<label for="availability" class="col-md-5 col-form-label ml-3">Availability</label>
+							<label for="availability" class="col-md-5 col-form-label ml-3">Availability<span class="glyphicon glyphicon-star"></span></label>
   							<div class="col-md-6 ml-4">
   								<div class="input-group">
 	   								<div class="custom-control custom-radio custom-control-inline mt-2">
@@ -1732,7 +1732,7 @@
 				
   		</form:form>
   		<script>
-            $('#certificate,#cv,#photo2,#drivingLicense').on('change',function(){
+            $('#certificate,#cv,#photo4,#drivingLicense').on('change',function(){
        
                 var fileName = $(this).val();
    
@@ -1745,9 +1745,9 @@
   			$(document).ready(function()
   			{
   			
-  				$("#photo2").change(function()
+  				$("#photo4").change(function()
   				{
-  					var  fileSelected = document.getElementById("photo2").files;
+  					var  fileSelected = document.getElementById("photo4").files;
   					if(fileSelected.length>0)
   					{
 					var fileToLoad= fileSelected[0];
@@ -1758,7 +1758,7 @@
   						var base64value = fileLoadedEvent.target.result;
 						var base64value = base64value.replace("data:image/png;base64,","");
   						console.log(base64value);
-  						$('#photo').val(base64value);
+  						$('#photooo').val(base64value);
 					};
 				
   					fileReader.readAsDataURL(fileToLoad);
@@ -1980,7 +1980,7 @@
 						}
 					},
 					
-					profilePhoto2: {
+					profilePhoto4: {
 						validators: {
 							notEmpty: {
 								message: 'Profile Photo  is required'

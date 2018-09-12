@@ -121,7 +121,7 @@ public class EmployeeDao {
 	
 	public Employee getEmployeeById(int id) {
 		
-		return template.query("select * from employee inner join system_user on employee.empID=system_user.empSUId where employee.empID="+id,new ResultSetExtractor<Employee>() {
+		return template.query("select * from employee left outer join system_user on employee.empID=system_user.empSUId left outer join other_emps on other_emps.empOTId=employee.empID where employee.empID="+id,new ResultSetExtractor<Employee>() {
 			
 			public Employee extractData(ResultSet rs) throws SQLException 
 			{
@@ -146,9 +146,14 @@ public class EmployeeDao {
 					e.setHomeAddress(rs.getString(20));
 					e.setContactNo1(rs.getInt(21));
 					e.setContactNo2(rs.getInt(22));
+					e.setProfilePhoto(rs.getString(23));
 					e.setUserName(rs.getString(25));
 					e.setPassword(rs.getString(26));
-					e.setProfilePhoto(rs.getString(23));
+					e.setDrivingLicense(rs.getString(28));
+					e.setAvailability(rs.getString(29));
+					e.setVehicleNo(rs.getString(30));
+					e.setBikeNo(rs.getString(31));
+					
 				}
 			
 			return e;
@@ -163,11 +168,13 @@ public class EmployeeDao {
 	public void update(Employee e)
 	{
 		String sql1="update system_user	set username='"+e.getUserName()+"',password='"+e.getPassword()+"' where empSUId="+e.getEmployeeId()+";";
-		String sql2="update employee set firstName='"+e.getFirstName()+"',lastName='"+e.getLastName()+"',currentAddress='"+e.getCurrentAddress()+"',homeAddress='"+e.getHomeAddress()+"',city='"+e.getCity()+"',postalCode='"+e.getPostalCode()+"',martialStatus='"+e.getMaritalStatus()+"',NIC='"+e.getNIC()+"',bankAccNo='"+e.getBankAccountNo()+"',basicSalary='"+e.getBasicSalary()+"',email='"+e.getEmail()+"',contactNo1='"+e.getContactNo1()+"',contactNo2='"+e.getContactNo2()+"' where empID="+e.getEmployeeId()+";";
+		String sql2="update other_emps	set drivingLicense='"+e.getDrivingLicense()+"',availability='"+e.getAvailability()+"',vehicleNo='"+e.getVehicleNo()+"',bikeNo='"+e.getBikeNo()+"' where empOTId="+e.getEmployeeId()+";";
+		String sql3="update employee set firstName='"+e.getFirstName()+"',lastName='"+e.getLastName()+"',currentAddress='"+e.getCurrentAddress()+"',homeAddress='"+e.getHomeAddress()+"',city='"+e.getCity()+"',postalCode='"+e.getPostalCode()+"',martialStatus='"+e.getMaritalStatus()+"',NIC='"+e.getNIC()+"',bankAccNo='"+e.getBankAccountNo()+"',basicSalary='"+e.getBasicSalary()+"',email='"+e.getEmail()+"',contactNo1='"+e.getContactNo1()+"',contactNo2='"+e.getContactNo2()+"' where empID="+e.getEmployeeId()+";";
 
 		System.out.println(sql1);
 		System.out.println(sql2);
-		template.batchUpdate(sql1,sql2);
+		System.out.println(sql3);
+		template.batchUpdate(sql1,sql2,sql3);
 	} 
 		
 	

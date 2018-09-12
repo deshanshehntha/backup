@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page isELIgnored="false" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +11,11 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/glyphican.css">
     <script src="js/jquery.js"></script>
     <script src="js/proper.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrapValidator.js"></script>
 	 	
 	<title>Time & Attendance</title>
 </head>
@@ -123,9 +128,9 @@
 			</div>
 		</div>
 		
-	<form method="POST"  action="uploadt&a" id="#">
-  	<div class="row" style="margin-top: 150px">
-	<label for="filePath" class="col-md-3 col-form-label offset-3">Select Attendance file to read</label>
+	<form method="POST"  action="uploadt&a" id="attendanceForm">
+  	<div class="form-group row" style="margin-top: 150px">
+	<label for="filePath" class="col-md-3 col-form-label offset-3">Select Attendance file to read<span class="glyphicon glyphicon-star"></span></label>
        <div class="col-md-3">
     <div class="input-group">
   <div class="custom-file">
@@ -138,7 +143,7 @@
     </div>
   	
   	</div>
-  	  
+  
       <div class="row" style="margin-top: 50px">
       <div class="col" style="margin-left: 230px">
       					<button type="submit" class="btn btn-primary mx-auto d-block"> Update Database</button>
@@ -150,9 +155,9 @@
       </div>
      
       </form>
-      <form method="POST"  action="uploadOverTime" id="#">
-        	<div class="row" style="margin-top: 100px">
-	<label for="overTime" class="col-md-3 col-form-label offset-3">Select Over Time file to read</label>
+      <form method="POST"  action="uploadOverTime" id="otForm">
+        	<div class="form-group row" style="margin-top: 100px">
+	<label for="overTime" class="col-md-3 col-form-label offset-3">Select Over Time file to read<span class="glyphicon glyphicon-star"></span></label>
        <div class="col-md-3">
     <div class="input-group">
   <div class="custom-file">
@@ -179,6 +184,80 @@
       </div>
      
       </form>
+      
+      
+      <script>
+            $('#filePath,#overTime').on('change',function(){
+       
+                var fileName = $(this).val();
+   
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
+        
+        
+        <script type="text/javascript">
+ 
+   			$(document).ready(function() {
+			$('#attendanceForm').bootstrapValidator({
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					
+					filePath: {
+						validators: {
+							notEmpty: {
+									message: 'Choose a file to Upload'
+							}
+						}
+					},
+				},
+				
+				onSuccess: function(e, data) {
+	                  
+                    alert('Attendance Records Update Successful!!!');
+                }
+				
+				});
+			});
+   			
+		</script>
+  	
+  	
+  		  <script type="text/javascript">
+ 
+   			$(document).ready(function() {
+			$('#otForm').bootstrapValidator({
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					
+					overTime: {
+						validators: {
+							notEmpty: {
+									message: 'Choose a file to Upload'
+							}
+						}
+					},
+				},
+				
+				onSuccess: function(e, data) {
+	                  
+                    alert('Over Time Records Update Successful!!!');
+                }
+				
+				});
+			});
+   			
+		</script>
+  	
+      
   	
   	</div>
   
