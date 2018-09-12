@@ -3,6 +3,10 @@
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isELIgnored="false" %>   
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,12 +133,45 @@
 			</div>
 		</div>
 	
-	<form method="GET"  action="getLeaveEmployee" >	
-	<div class=row>	
-		<div class="col-md-2 offset-3 my-5">Enter Employee ID</div>
- 		<div class="col-md-4 my-5">				
-			<input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="Enter ID"></div>
-		</div>
+	
+		<form method="GET"  action="getLeaveEmployee" >
+		<div class="form-group row my-5">
+     					<label for="employeeId" class="col-md-2 col-form-label" style="margin-left:320px ">Select Employee Id</label>
+   						<div class="col-md-5">
+      						<div class="input-group">
+						  		<select class="custom-select form-control" name="employeeId" id="employeeId">
+							    	<option value=-1>Choose Id</option>
+							    	<%
+							    		try
+							    		{
+							    			String query ="select empId from employee";
+							    			Class.forName("com.mysql.jdbc.Driver").newInstance();
+							    			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/automatedbarcode_database?useSSL=false","root","root");
+							    			Statement stm = con.createStatement();
+							    			ResultSet rs = stm.executeQuery(query);
+							    			while(rs.next()){
+							    				
+							    				%><option value="<%=rs.getInt("empId")%>"><%=rs.getInt("empId") %></option>
+							    				<% 	    				
+							    			}
+							    			
+							    		}
+							    		catch(Exception ex){
+							    			
+							    			ex.printStackTrace();
+							    			
+							    		}
+							    								    	
+							    	%>
+						  		</select>
+						  		<button type="submit"  class="col-md-4 btn btn-primary ml-3">Generate Content</button>
+						  	</div>
+						  	
+    					</div>
+    					
+  					</div>
+		
+		
 	</form>
 	
 	<form:form method="POST" action="leaveEmployee" id="leaveEmp" modelAttribute="lemployee">
