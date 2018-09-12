@@ -18,16 +18,14 @@ public class Employee implements Serializable {
 	@Id
 	private int employeeId;
 	
-	@NotEmpty(message="First Name field cannot be empty")
+	//@NotEmpty(message="First Name field cannot be empty")
 	private String firstName;
 	
-	@NotEmpty(message="Last Name field cannot be empty")
+	//@NotEmpty(message="Last Name field cannot be empty")
 	private String lastName;
 	
-	@NotEmpty(message="Birth Date field cannot be empty")
 	private Date birthDate;
 	
-	@NotEmpty(message="Leaving Date field cannot be empty")
 	private Date leavingDate;
 	
 	public Date getLeavingDate() {
@@ -60,51 +58,51 @@ public class Employee implements Serializable {
 	
 	private String specialNotes;
 	
-	@NotEmpty(message="Gender field cannot be empty")
+	//@NotEmpty(message="Gender field cannot be empty")
 	private String gender;
 	
-	@NotNull(message="N.I.C field cannot be empty") 
+	//@NotNull(message="N.I.C field cannot be empty") 
 	private String NIC;
 	
-	@NotEmpty(message="Marital status field cannot be empty")
+	//@NotEmpty(message="Marital status field cannot be empty")
 	private String maritalStatus;
 	
-	@NotNull(message="Bank Account field cannot be empty")
+	//@NotNull(message="Bank Account field cannot be empty")
 	private int bankAccountNo;
 	
-	@NotEmpty(message="Current Address field cannot be empty")
+	//@NotEmpty(message="Current Address field cannot be empty")
 	private String currentAddress;
 	
-	@NotEmpty(message="Home Address field cannot be empty")
+	//@NotEmpty(message="Home Address field cannot be empty")
 	private String homeAddress;
 	
-	@NotEmpty(message="City field cannot be empty")
+	//@NotEmpty(message="City field cannot be empty")
 	private String city;
 	
-	@NotNull(message="Postal Code field cannot be empty")
+	//@NotNull(message="Postal Code field cannot be empty")
 	private int postalCode;
 	
-	@NotNull(message="Contact No field cannot be empty")
+	//@NotNull(message="Contact No field cannot be empty")
 	private int contactNo1;
 	
 	private int contactNo2;
 	
-	@Email @NotEmpty(message="Email field cannot be empty")
+	//@Email @NotEmpty(message="Email field cannot be empty")
 	private String email;
 	
-	@NotEmpty(message="Designation field cannot be empty")
+	//@NotEmpty(message="Designation field cannot be empty")
 	private String designation;
 	
-	@NotNull(message="Experienced Level  cannot be empty")
+	//@NotNull(message="Experienced Level  cannot be empty")
 	private int experiencedLevel;
 	
-	@NotNull(message="Basic Salary field cannot be empty")
+	//@NotNull(message="Basic Salary field cannot be empty")
 	private double basicSalary;
 	
-	@NotEmpty(message="Certificates field cannot be empty")
+	//@NotEmpty(message="Certificates field cannot be empty")
 	private String certificates;
 	
-	@NotEmpty(message="CV field cannot be empty")
+	//@NotEmpty(message="CV field cannot be empty")
 	private String cv;
 	
 	private int departmentId;
@@ -123,7 +121,7 @@ public class Employee implements Serializable {
 	}
 	private String departmentName;
 	
-	//@NotEmpty(message="Photo field cannot be empty")
+
 	private String profilePhoto;
 
 	
@@ -133,9 +131,46 @@ public class Employee implements Serializable {
 	public void setProfilePhoto(String profilePhoto) {
 		this.profilePhoto = profilePhoto;
 	}
-	//	@NotEmpty(message="Joined Date field cannot be empty")
+	
 	private Date joinedDate;
 	
+	private String leaveType;
+	private String leaveReason;
+	private Date leaveRequestedDate;
+	private String leaveStartDate;
+	private String leaveEndDate;
+	
+	
+	public String getLeaveType() {
+		return leaveType;
+	}
+	public void setLeaveType(String leaveType) {
+		this.leaveType = leaveType;
+	}
+	public String getLeaveReason() {
+		return leaveReason;
+	}
+	public void setLeaveReason(String leaveReason) {
+		this.leaveReason = leaveReason;
+	}
+	public Date getLeaveRequestedDate() {
+		return leaveRequestedDate;
+	}
+	public void setLeaveRequestedDate(Date leaveRequestedDate) {
+		this.leaveRequestedDate = leaveRequestedDate;
+	}
+	public String getLeaveStartDate() {
+		return leaveStartDate;
+	}
+	public void setLeaveStartDate(String leaveStartDate) {
+		this.leaveStartDate = leaveStartDate;
+	}
+	public String getLeaveEndDate() {
+		return leaveEndDate;
+	}
+	public void setLeaveEndDate(String leaveEndDate) {
+		this.leaveEndDate = leaveEndDate;
+	}
 	@NotEmpty(message="License field cannot be empty")
 	private String drivingLicense;
 	

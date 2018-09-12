@@ -219,7 +219,7 @@
 
 		<div class="row">
       		<div class="col-md-4 offset-2 my-5 text-center">
-				<button type="submit" id="submit" class="btn btn-primary">Submit</button>
+				<button type="submit"  class="btn btn-primary">Submit</button>
     		</div>
     			
  			<div class="col-md-4  my-5 text-center">
@@ -264,7 +264,13 @@
 							}
 						}
 					},	
-					}
+					},
+				
+				onSuccess: function(e, data) {
+	                  
+                    alert('Employee Removed Successfully!!!');
+                }
+				
 				});
 			});
    			

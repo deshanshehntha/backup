@@ -1,13 +1,9 @@
 package com.example.demo.dao;
 
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Base64;
+
 
 import javax.sql.DataSource;
 
@@ -18,6 +14,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Employee;
+
 
 @Service
 public class EmployeeDao {
@@ -56,15 +53,69 @@ public class EmployeeDao {
 		
 		String sql1="insert into removed_emps(employeeId, firstName,contactNo, joinedDate, designation, departmentName, leaveDate, resignation, specialNotes) values ('"+e.getEmployeeId()+"','"+e.getFirstName()+"','"+e.getContactNo1()+"','"+e.getJoinedDate()+"','"+e.getDesignation()+"','"+e.getDepartmentName()+"','"+e.getLeavingDate()+"','"+e.getResignation()+"','"+e.getSpecialNotes()+"')";
 		String sql2="delete from system_user where empSUId="+id+"";
-		String sql3="delete from employee where empID="+id+"";
+		String sql3="delete from other_emps where empOTId="+id+"";
+		String sql4="delete from employee where empID="+id+"";
 		
 		System.out.println(sql1);
 		System.out.println(sql3);
-		template.batchUpdate(sql1,sql2,sql3);
+		template.batchUpdate(sql1,sql2,sql3,sql4);
+
+	} 
+	
+	public void leave(Employee e) 
+	{
+		
+		String sql1="insert into emp_leave(emID, firstName, lastName, departmentName, designation, type, reason, requestedDate, strtDateTime, endDateTime) values ('"+e.getEmployeeId()+"','"+e.getFirstName()+"','"+e.getLastName()+"','"+e.getDepartmentName()+"','"+e.getDesignation()+"','"+e.getLeaveType()+"','"+e.getLeaveReason()+"','"+e.getLeaveRequestedDate()+"','"+e.getLeaveStartDate()+"','"+e.getLeaveEndDate()+"')";
+
+		System.out.println(sql1);
+		
+		template.batchUpdate(sql1);
 
 	} 
 	
 	
+	public void insertDriver(Employee e) 
+	{
+		
+		String sql1="insert into employee(firstName, lastName, gender, currentAddress,homeAddress,city, postalCode, martialStatus, joinedDate, NIC, dob, bankAccNo, basicSalary, experiencedLevel, cv, designation, deptId, certificate, email,contactNo1, contactNo2, profilePhoto) values ('"+e.getFirstName()+"','"+e.getLastName()+"','"+e.getGender()+"','"+e.getCurrentAddress()+"','"+e.getHomeAddress()+"','"+e.getCity()+"','"+e.getPostalCode()+"','"+e.getMaritalStatus()+"','"+e.getJoinedDate()+"','"+e.getNIC()+"','"+e.getBirthDate()+"','"+e.getBankAccountNo()+"','"+e.getBasicSalary()+"','"+e.getExperiencedLevel()+"','"+e.getCv()+"','"+e.getDesignation()+"','"+e.getDepartmentId()+"','"+e.getCertificates()+"','"+e.getEmail()+"','"+e.getContactNo1()+"','"+e.getContactNo2()+"','"+e.getProfilePhoto()+"')";
+		String sql2="SET @last_id_in_employee = Last_Insert_ID();";
+		String sql3="insert into other_emps(empOTId, drivingLicense, availability, vehicleNo)values (@last_id_in_employee,'"+e.getDrivingLicense()+"','"+e.getAvailability()+"','"+e.getVehicleNo()+"')";
+		System.out.println(sql1);
+		System.out.println(sql3);
+		template.batchUpdate(sql1,sql2,sql3);
+	
+	} 
+	
+	public void insertTechnician(Employee e) 
+	{
+		
+		String sql1="insert into employee(firstName, lastName, gender, currentAddress,homeAddress,city, postalCode, martialStatus, joinedDate, NIC, dob, bankAccNo, basicSalary, experiencedLevel, cv, designation, deptId, certificate, email,contactNo1, contactNo2, profilePhoto) values ('"+e.getFirstName()+"','"+e.getLastName()+"','"+e.getGender()+"','"+e.getCurrentAddress()+"','"+e.getHomeAddress()+"','"+e.getCity()+"','"+e.getPostalCode()+"','"+e.getMaritalStatus()+"','"+e.getJoinedDate()+"','"+e.getNIC()+"','"+e.getBirthDate()+"','"+e.getBankAccountNo()+"','"+e.getBasicSalary()+"','"+e.getExperiencedLevel()+"','"+e.getCv()+"','"+e.getDesignation()+"','"+e.getDepartmentId()+"','"+e.getCertificates()+"','"+e.getEmail()+"','"+e.getContactNo1()+"','"+e.getContactNo2()+"','"+e.getProfilePhoto()+"')";
+		String sql2="SET @last_id_in_employee = Last_Insert_ID();";
+		String sql3="insert into other_emps(empOTId, drivingLicense, availability,bikeNo)values (@last_id_in_employee,'"+e.getDrivingLicense()+"','"+e.getAvailability()+"','"+e.getBikeNo()+"')";
+		System.out.println(sql1);
+		System.out.println(sql3);
+		template.batchUpdate(sql1,sql2,sql3);
+	
+	} 
+	
+	
+	public void uploadTimeAttendance(String a,String b,String c,int d) 
+	{	
+		
+		String sql1="insert into attendance(date, startTime, endTime, eid) values ('"+a+"','"+b+"','"+c+"','"+d+"')";
+		System.out.println(sql1);
+		template.update(sql1);
+	
+	}
+	
+	public void uploadOverTime(int a,String b,String c,String d) 
+	{	
+		
+		String sql1="insert into overtime(eeid, strtTime, endTime, date) values ('"+a+"','"+b+"','"+c+"','"+d+"')";
+		System.out.println(sql1);
+		template.update(sql1);
+	
+	}
 	
 
 	
@@ -97,47 +148,7 @@ public class EmployeeDao {
 					e.setContactNo2(rs.getInt(22));
 					e.setUserName(rs.getString(25));
 					e.setPassword(rs.getString(26));
-					
-					
-					Blob blob = rs.getBlob(23);
-		                 
-		            InputStream inputStream = blob.getBinaryStream();
-		            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		            int blobLength = (int) blob.length();
-		            System.out.println(blobLength);
-		            byte[] buffer = new byte[blobLength];
-		            int bytesRead = -1;
-		                 
-		            try {
-							while ((bytesRead = inputStream.read(buffer)) != -1) 
-							{
-								    outputStream.write(buffer, 0, bytesRead);                  
-							}
-							} catch (IOException e1) {
-								
-								e1.printStackTrace();
-							}
-						
-		                 
-		                	byte[] imageBytes = outputStream.toByteArray();
-		                	String profilePhoto = Base64.getEncoder().encodeToString(imageBytes);
-		                	System.out.println(profilePhoto);
-		                 
-		                
-							try {
-								inputStream.close();
-							} catch (IOException e1) {
-								
-								e1.printStackTrace();
-							}
-							try {
-								outputStream.close();
-							} catch (IOException e1) {
-								
-								e1.printStackTrace();
-							}
-		                
-							e.setProfilePhoto(profilePhoto);
+					e.setProfilePhoto(rs.getString(23));
 				}
 			
 			return e;
@@ -175,6 +186,7 @@ public class EmployeeDao {
 					
 					e.setEmployeeId(rs.getInt(1));
 					e.setFirstName(rs.getString(2));
+					e.setLastName(rs.getString(3));
 				
 					e.setCurrentAddress(rs.getString(5));
 					e.setCity(rs.getString(6));

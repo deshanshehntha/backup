@@ -123,13 +123,13 @@
 			</div>
 		</div>
 		
-
+	<form method="POST"  action="uploadt&a" id="#">
   	<div class="row" style="margin-top: 150px">
-	<label for="inputFname" class="col-md-3 col-form-label offset-3">Select Attendance file to read</label>
+	<label for="filePath" class="col-md-3 col-form-label offset-3">Select Attendance file to read</label>
        <div class="col-md-3">
     <div class="input-group">
   <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    <input type="file" class="custom-file-input" id="filePath" name="filePath" aria-describedby="inputGroupFileAddon04">
     <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
   </div>
 
@@ -145,18 +145,18 @@
     				</div>
     				
  	<div class="col">
-      					<button type="reset" class="btn btn-primary">View Content</button>
+      					<button type="button" class="btn btn-primary">View Content</button>
     				</div>
       </div>
      
-      
-      
+      </form>
+      <form method="POST"  action="uploadOverTime" id="#">
         	<div class="row" style="margin-top: 100px">
-	<label for="inputFname" class="col-md-3 col-form-label offset-3">Select Over Time file to read</label>
+	<label for="overTime" class="col-md-3 col-form-label offset-3">Select Over Time file to read</label>
        <div class="col-md-3">
     <div class="input-group">
   <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    <input type="file" class="custom-file-input" id="overTime" name="overTime" aria-describedby="inputGroupFileAddon04">
     <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
   </div>
 
@@ -174,11 +174,11 @@
     				</div>
     				
  	<div class="col">
-      					<button type="reset" class="btn btn-primary">View Content</button>
+      					<button type="button" class="btn btn-primary">View Content</button>
     				</div>
       </div>
      
-      
+      </form>
   	
   	</div>
   

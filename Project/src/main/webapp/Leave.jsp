@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page isELIgnored="false" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,50 +126,49 @@
 				</div>
 			</div>
 		</div>
-		
-<div class=row>	
-<div class="col-md-2 offset-3 my-5">Enter Employee ID</div>
- <div class="col-md-4 my-5">				
-	<input type="text" class="form-control" id="inputFname" placeholder="Enter ID"></div>
-	</div>
 	
+	<form method="GET"  action="getLeaveEmployee" >	
+	<div class=row>	
+		<div class="col-md-2 offset-3 my-5">Enter Employee ID</div>
+ 		<div class="col-md-4 my-5">				
+			<input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="Enter ID"></div>
+		</div>
+	</form>
+	
+	<form:form method="POST" action="leaveEmployee"  modelAttribute="lemployee">
 	<div class="form">
 	
 	<div class="row">
 	<div class="col text-center my-4"><Span style="text-decoration: underline;"><h4>Employee Information</h4></Span></div>
 
 	</div>
-	<div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">Leave ID</label>
-    <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
-   </div>
+
    <div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">Employee ID</label>
+	<label for="employeeId" class="col-md-3 col-form-label" style="margin-left: 350px">Employee ID</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
+      <form:input type="text" class="form-control" id="employeeId" path="employeeId" name="employeeId" placeholder="System Gen" readonly="true"/></div>
    </div>
 	
 	<div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">First Name</label>
+	<label for="firstName" class="col-md-3 col-form-label" style="margin-left: 350px">First Name</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
+      <form:input type="text" class="form-control" id="firstName" name="firstName" path="firstName" placeholder="System Gen" readonly="true"/></div>
    </div>
    
    <div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">Last Name</label>
+	<label for="lastName" class="col-md-3 col-form-label" style="margin-left: 350px">Last Name</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
+      <form:input type="text" class="form-control" id="lasttName" name="lastName" path="lastName" placeholder="System Gen" readonly="true"/></div>
    </div>
    <div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">Department Name</label>
+	<label for="departmentName" class="col-md-3 col-form-label" style="margin-left: 350px">Department Name</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
+      <form:input type="text" class="form-control" id="department" name="departmentName"  path="departmentName" placeholder="System Gen" readonly="true"/></div>
    </div>
    <div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">Designation</label>
+	<label for="designation" class="col-md-3 col-form-label" style="margin-left: 350px">Designation</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Gen"></div>
+      <form:input type="text" class="form-control" id="designation" name="designation" path="designation" placeholder="System Gen" readonly="true"/></div>
    </div>
    
   	<div class="row">
@@ -176,19 +178,19 @@
   	<div class="form-group row my-3">
   
    <div class="col-1 custom-control custom-radio custom-control-inline" style="margin-left: 450px">
-  	<input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+  	<input type="radio" id="customRadioInline1" value="Annual" name="leaveType" class="custom-control-input">
  	 <label class="custom-control-label" for="customRadioInline1">Annual</label>
 	</div>
 	<div class="col-1 custom-control custom-radio custom-control-inline " >
-  	<input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+  	<input type="radio" id="customRadioInline2" value="Medical" name="leaveType" class="custom-control-input">
   	<label class="custom-control-label" for="customRadioInline2">Medical</label>
 	</div>
 	<div class="col-1 custom-control custom-radio custom-control-inline"  >
-  	<input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+  	<input type="radio" id="customRadioInline3" name="leaveType" value="Half Day" class="custom-control-input">
   	<label class="custom-control-label" for="customRadioInline3">Half Day</label>
 	</div>
 	<div class="col-1 custom-control custom-radio custom-control-inline" >
-  	<input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">
+  	<input type="radio" id="customRadioInline4" name="leaveType" value="Other" class="custom-control-input">
   	<label class="custom-control-label" for="customRadioInline4">Other</label>
 	</div>   
   	</div>
@@ -200,28 +202,28 @@
 	</div>
 	
 	<div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">Reason</label>
+	<label for="leaveReason" class="col-md-3 col-form-label" style="margin-left: 350px">Reason</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="Only Applicable for Halfday & Other"></div>
+      <form:input type="text" class="form-control" id="leaveReason" path="leaveReason" name="leaveReason" placeholder="Only Applicable for Halfday & Other"/></div>
    </div>
    
    <div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">Requested Date</label>
+	<label for="leaveRequestedDate" class="col-md-3 col-form-label" style="margin-left: 350px">Requested Date</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="inputFname" placeholder="System Date"></div>
+      <form:input type="date" class="form-control" id="leaveRequestedDate" path="leaveRequestedDate" name="leaveRequestedDate" placeholder="System Date"/></div>
    </div>
 	
 	<div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">From</label>
+	<label for="leaveStartDate" class="col-md-3 col-form-label" style="margin-left: 350px">From</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="datetime1"></div>
+      <form:input type="text" class="form-control" path="leaveStartDate" name="leaveStartDate" id="leaveStartDate"/></div>
  
     </div>
    
     <div class="form-group row">
-	<label for="inputFname" class="col-md-3 col-form-label" style="margin-left: 350px">To</label>
+	<label for="leaveEndDate" class="col-md-3 col-form-label" style="margin-left: 350px">To</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" id="datetime2"></div>
+      <form:input type="text" class="form-control" path="leaveEndDate" name="leaveEndDate" id="leaveEndDate"/></div>
 	 </div>
     
  
@@ -237,13 +239,13 @@
       
   	
   	</div>
-  
+  </form:form>
   	<script type="text/javascript">
-	$("#datetime1").datetimepicker();
+	$("#leaveStartDate").datetimepicker();
 
 </script>
 <script type="text/javascript">
-	$("#datetime2").datetimepicker();
+	$("#leaveEndDate").datetimepicker();
 
 </script>
   </div>
