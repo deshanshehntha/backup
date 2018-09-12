@@ -51,14 +51,17 @@ public class EmployeeDao {
 	public void delete(Employee e,int id) 
 	{
 		
-		String sql1="insert into removed_emps(employeeId, firstName,contactNo, joinedDate, designation, departmentName, leaveDate, resignation, specialNotes) values ('"+e.getEmployeeId()+"','"+e.getFirstName()+"','"+e.getContactNo1()+"','"+e.getJoinedDate()+"','"+e.getDesignation()+"','"+e.getDepartmentName()+"','"+e.getLeavingDate()+"','"+e.getResignation()+"','"+e.getSpecialNotes()+"')";
+		String sql1="insert into removed_emps(employeeId, firstName,contactNo, joinedDate, designation, departmentName, leaveDate,leavingReason, resignation, specialNotes) values ('"+e.getEmployeeId()+"','"+e.getFirstName()+"','"+e.getContactNo1()+"','"+e.getJoinedDate()+"','"+e.getDesignation()+"','"+e.getDepartmentName()+"','"+e.getLeavingDate()+"','"+e.getLeaveReason()+"','"+e.getResignation()+"','"+e.getSpecialNotes()+"')";
 		String sql2="delete from system_user where empSUId="+id+"";
 		String sql3="delete from other_emps where empOTId="+id+"";
-		String sql4="delete from employee where empID="+id+"";
+		String sql4="delete from overtime where eeid="+id+"";
+		String sql5="delete from attendance where eid="+id+"";
+		String sql6="delete from emp_leave where emID="+id+"";
+		String sql7="delete from employee where empID="+id+"";
 		
 		System.out.println(sql1);
 		System.out.println(sql3);
-		template.batchUpdate(sql1,sql2,sql3,sql4);
+		template.batchUpdate(sql1,sql2,sql3,sql4,sql5,sql6,sql7);
 
 	} 
 	
@@ -169,7 +172,7 @@ public class EmployeeDao {
 	{
 		String sql1="update system_user	set username='"+e.getUserName()+"',password='"+e.getPassword()+"' where empSUId="+e.getEmployeeId()+";";
 		String sql2="update other_emps	set drivingLicense='"+e.getDrivingLicense()+"',availability='"+e.getAvailability()+"',vehicleNo='"+e.getVehicleNo()+"',bikeNo='"+e.getBikeNo()+"' where empOTId="+e.getEmployeeId()+";";
-		String sql3="update employee set firstName='"+e.getFirstName()+"',lastName='"+e.getLastName()+"',currentAddress='"+e.getCurrentAddress()+"',homeAddress='"+e.getHomeAddress()+"',city='"+e.getCity()+"',postalCode='"+e.getPostalCode()+"',martialStatus='"+e.getMaritalStatus()+"',NIC='"+e.getNIC()+"',bankAccNo='"+e.getBankAccountNo()+"',basicSalary='"+e.getBasicSalary()+"',email='"+e.getEmail()+"',contactNo1='"+e.getContactNo1()+"',contactNo2='"+e.getContactNo2()+"' where empID="+e.getEmployeeId()+";";
+		String sql3="update employee set firstName='"+e.getFirstName()+"',lastName='"+e.getLastName()+"',currentAddress='"+e.getCurrentAddress()+"',homeAddress='"+e.getHomeAddress()+"',city='"+e.getCity()+"',postalCode='"+e.getPostalCode()+"',martialStatus='"+e.getMaritalStatus()+"',NIC='"+e.getNIC()+"',bankAccNo='"+e.getBankAccountNo()+"',basicSalary='"+e.getBasicSalary()+"',email='"+e.getEmail()+"',contactNo1='"+e.getContactNo1()+"',contactNo2='"+e.getContactNo2()+"',profilePhoto='"+e.getProfilePhoto()+"' where empID="+e.getEmployeeId()+";";
 
 		System.out.println(sql1);
 		System.out.println(sql2);

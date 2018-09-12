@@ -21,7 +21,7 @@
 	<script src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/bootstrapValidator.js"></script>
 	 	
-	<title>EmployeeProfile</title>
+	<title>EditEmployeeProfile</title>
 </head>
 
 <body>
@@ -132,50 +132,10 @@
 			</div>
 		</div>
 	
-	<form method="GET"  action="getEmployee" >
-		<div class="form-group row my-5">
-     					<label for="employeeId" class="col-md-2 col-form-label" style="margin-left:320px ">Select Employee Id</label>
-   						<div class="col-md-5">
-      						<div class="input-group">
-						  		<select class="custom-select form-control" name="employeeId" id="employeeId">
-							    	<option value=-1>Choose Id</option>
-							    	<%
-							    		try
-							    		{
-							    			String query ="select empId from employee";
-							    			Class.forName("com.mysql.jdbc.Driver").newInstance();
-							    			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/automatedbarcode_database?useSSL=false","root","root");
-							    			Statement stm = con.createStatement();
-							    			ResultSet rs = stm.executeQuery(query);
-							    			while(rs.next()){
-							    				
-							    				%><option value="<%=rs.getInt("empId")%>"><%=rs.getInt("empId") %></option>
-							    				<% 	    				
-							    			}
-							    			
-							    		}
-							    		catch(Exception ex){
-							    			
-							    			ex.printStackTrace();
-							    			
-							    		}
-							    								    	
-							    	%>
-						  		</select>
-						  		<button type="submit"  class="col-md-4 btn btn-primary ml-3">Generate Content</button>
-						  	</div>
-						  	
-    					</div>
-    					
-  					</div>
-		
-		
-	</form>
 	
 	
 	
-	
-	<form:form method="POST" action="getEditEmployee" modelAttribute="employee">
+	<form:form method="POST" action="update" modelAttribute="employee" id="validateEditForm">
 		<div class="row">
 			<div class="col-md-5 offset-1">
 
@@ -192,49 +152,49 @@
 				<div class="form-group row">
 					<label for="currentAddress" class="col-md-5 col-form-label ml-4">Current Address</label>
     				<div class="col-md-6">
-      					<form:input type="text" path="currentAddress" class="form-control" readonly="true" name="currentAddress"/>
+      					<form:input type="text" path="currentAddress" class="form-control" name="currentAddress"/>
       				</div>
       			</div>
 
 				<div class="form-group row">
 					<label for="homeAddress" class="col-md-5 col-form-label ml-4" >Home Address</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="homeAddress" readonly="true" name="homeAddress" placeholder="System Gen"/>
+      					<form:input type="text" class="form-control" path="homeAddress" name="homeAddress" placeholder="System Gen"/>
       				</div>
       			</div>
 
 				<div class="form-group row">
 					<label for="city" class="col-md-5 col-form-label ml-4" >City</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="city" name="city" readonly="true" placeholder="System Gen"/>
+      					<form:input type="text" class="form-control" path="city" name="city" placeholder="System Gen"/>
       				</div>
       			</div>
 
 				<div class="form-group row">
 					<label for="postalCode" class="col-md-5 col-form-label ml-4" >Postal Code</label>
     				<div class="col-md-6">
-      					<form:input type="number" class="form-control" path="postalCode" readonly="true" name="postalCode" placeholder="System Gen"/>
+      					<form:input type="number" class="form-control" path="postalCode" name="postalCode" placeholder="System Gen"/>
       				</div>
       			</div>
 
 				<div class="form-group row">
 					<label for="contactNo1" class="col-md-5 col-form-label ml-4" >Contact No1</label>
     				<div class="col-md-6">
-      					<form:input type="number" class="form-control" path="contactNo1" readonly="true" name="contactNo1" placeholder="System Gen"/>
+      					<form:input type="number" class="form-control" path="contactNo1" name="contactNo1" placeholder="System Gen"/>
       				</div>
       			</div>
 
 				<div class="form-group row">
 					<label for="contactNo2" class="col-md-5 col-form-label ml-4" >Contact No2</label>
     				<div class="col-md-6">
-      					<form:input type="number" class="form-control" path="contactNo2" readonly="true" name="contactNo2" placeholder="System Gen"/>
+      					<form:input type="number" class="form-control" path="contactNo2" name="contactNo2" placeholder="System Gen"/>
       				</div>
       			</div>
 
 				<div class="form-group row">
 					<label for="email" class="col-md-5 col-form-label ml-4" >Email</label>
     				<div class="col-md-6">
-      					<form:input type="email" class="form-control" name="email" readonly="true" path="email" placeholder="System Gen"/>
+      					<form:input type="email" class="form-control" name="email" path="email" placeholder="System Gen"/>
       				</div>
       			</div>
       			
@@ -245,16 +205,28 @@
 				<div class="form-group row">
 					<label for="bikeNo" class="col-md-5 col-form-label ml-4" >Assigned Bike No</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" name="bikeNo" readonly="true" path="bikeNo" placeholder="System Gen"/>
+      					<form:input type="text" class="form-control" name="bikeNo" path="bikeNo" placeholder="System Gen"/>
       				</div>
       			</div>
 
 				<div class="form-group row">
 					<label for="VehicleNo" class="col-md-5 col-form-label ml-4" >Vehicle No</label>
    					 <div class="col-md-6">
-      					<form:input type="text" class="form-control" path="VehicleNo"  readonly="true" name="VehicleNo" placeholder="System Gen"/>
+      					<form:input type="text" class="form-control" path="VehicleNo"  name="VehicleNo" placeholder="System Gen"/>
       				</div>
       			</div>
+
+				<div class="form-group row">
+					<label for="drivingLicense" class="col-md-5 col-form-label ml-4">Driving License</label>
+       				<div class="col-md-6">
+    					<div class="input-group">
+  							<div class="custom-file">
+    							<form:input type="file" class="custom-file-input" path="drivingLicense" name="drivingLicense" aria-describedby="inputGroupFileAddon04"/>
+    							<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  							</div>
+						</div>
+ 					</div>
+  				</div>
 
 			</div>
 			
@@ -267,21 +239,21 @@
 				<div class="form-group row">
 					<label for="firstName" class="col-md-5 col-form-label ml-4">First Name</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="firstName" readonly="true" name="firstName" placeholder="System Gen"/>
+      					<form:input type="text" class="form-control" path="firstName" name="firstName" placeholder="System Gen"/>
       				</div>
       			</div>
       			
 				<div class="form-group row">
 					<label for="lastName" class="col-md-5 col-form-label ml-4">Last Name</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="lastName" readonly="true" name="lastName" placeholder="System Gen"/>
+      					<form:input type="text" class="form-control" path="lastName" name="lastName" placeholder="System Gen"/>
       				</div>
       			</div>
       			
     			<div class="form-group row">
 					<label for="NIC" class="col-md-5 col-form-label ml-4">N.I.C NO</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="NIC" readonly="true" name="NIC" placeholder="System Gen"/>
+      					<form:input type="text" class="form-control" path="NIC" name="NIC" placeholder="System Gen"/>
       				</div>
       			</div>
     
@@ -289,8 +261,12 @@
 					<label for="maritalStatus" class="col-md-5 col-form-label ml-4">Marital Status</label>
     				<div class="col-md-6">
       					<div class="input-group">
-  							<form:select class="custom-select" path="maritalStatus" readonly="true" name="maritalStatus">
+  							<form:select class="custom-select" path="maritalStatus" name="maritalStatus">
     							<option value="${employee.maritalStatus}" selected>${employee.maritalStatus}</option>
+    							<option value="Married" >Married</option>
+								<option value="Single">Single</option>
+								<option value="Divorced">Divorced</option>
+								<option value="Widowed">Widowed</option>
 							</form:select>
     					</div>
     				</div>
@@ -299,7 +275,7 @@
 				<div class="form-group row">
 					<label for="bankAccountNo" class="col-md-5 col-form-label ml-4">Bank Account Number</label>
     				<div class="col-md-6">
-      					<form:input type="number" class="form-control" path="bankAccountNo" readonly="true" name="bankAccountNo"  placeholder="System Gen"/>
+      					<form:input type="number" class="form-control" path="bankAccountNo" name="bankAccountNo"  placeholder="System Gen"/>
       				</div>
       			</div>
 
@@ -317,10 +293,25 @@
 				<div class="form-group row">
 					<label for="basicSalary" class="col-md-5 col-form-label ml-4">Basic Salary</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="basicSalary" readonly="true" name="basicSalary"/>
+      					<form:input type="text" class="form-control" path="basicSalary" name="basicSalary"/>
     				</div>
     			</div>
     
+    			<div class="form-group row">
+    				<label for="pPhoto" class="col-md-5 col-form-label ml-4">Profile Photo</label>
+    				<div class="col-md-6">
+    					<div class="input-group">
+  							<div class="custom-file">
+    							<input type="file" class="custom-file-input"  id="pPhoto" name="pPhoto" accept="image/png" aria-describedby="inputGroupFileAddon04"/>
+    							<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  							</div>
+  						</div>
+					</div>
+  				</div>
+  				
+  				<div class="col">
+	      				<input  type="hidden" name="profilePhoto" class="form-control" id="photo" >
+	      		</div>
   				
    			 	<div class="form-group row">
      				<label for="joinedDate" class="col-md-5 col-form-label ml-4">Joined Date</label>
@@ -338,14 +329,14 @@
 				<div class="form-group row">
 					<label for="userName" class="col-md-5 col-form-label ml-4">User Name</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="userName" readonly="true" name="userName"/>
+      					<form:input type="text" class="form-control" path="userName" name="userName"/>
     				</div>
     			</div>
     
 				<div class="form-group row">
 	 				<label for="password" class="col-md-5 col-form-label ml-4">Password</label>
     				<div class="col-md-6">
-      					<form:input type="text" class="form-control" path="password" readonly="true" name="password"/>
+      					<form:input type="text" class="form-control" path="password" name="password"/>
     				</div>
     			</div>
 			</div>
@@ -355,20 +346,202 @@
 			
 			
 			<div class="col md-5 offset-4 mt-5">
-      			<button type="submit" class="btn btn-primary">Edit</button>
+      			<button type="submit" class="btn btn-primary">Update</button>
     		</div>
     				
     		
       	</div>
-      	
-      	<div class="form-group row">
-      		<div class="col md-5 offset-4 mt-5">
-      			<button type="submit" class="btn btn-primary">Generate Profile PDF </button>
-     		</div>
-    	</div>
+
   	</form:form>	
   	<noscript>Enable JavaScript in your browser</noscript>
-  
+  	<script>
+            $('#pPhoto').on('change',function(){
+       
+                var fileName = $(this).val();
+   
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
+        
+  		
+  		<script>
+  		
+  			$(document).ready(function()
+  			{
+  			
+  				$("#pPhoto").change(function()
+  				{
+  					var  fileSelected = document.getElementById("pPhoto").files;
+  					if(fileSelected.length>0)
+  					{
+					var fileToLoad= fileSelected[0];
+  					var fileReader = new FileReader();
+  					fileReader.onload = function(fileLoadedEvent)
+  					{
+  					
+  						var base64value = fileLoadedEvent.target.result;
+						var base64value = base64value.replace("data:image/png;base64,","");
+  						console.log(base64value);
+  						$('#photo').val(base64value);
+					};
+				
+  					fileReader.readAsDataURL(fileToLoad);
+  					}
+				});
+  			});
+  		
+  		</script>
+        
+        
+        
+        <script type="text/javascript">
+ 
+   			$(document).ready(function() {
+			$('#validateEditForm').bootstrapValidator({
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					
+					firstName: {
+						validators: {
+							stringLength: {
+								min: 5,
+								message: 'Enter First Name with minimum 5 letters length'
+							},
+							notEmpty: {
+								message: 'Enter First name'
+							}
+						}
+					},
+					
+					lastName: {
+						validators: {
+							stringLength: {
+								min: 5,
+								message: 'Enter Last Name with minimum 5 letters length'
+							},
+							notEmpty: {
+								message: 'Enter Last name'
+							}
+						}
+					},
+		
+					
+					joinedDate: {
+						validators: {
+							notEmpty: {
+								message: 'Joined Date is required'
+							}
+						}
+					},
+		
+					
+					NIC: {
+						validators: {
+							notEmpty: {
+								message: 'N.I.C field is required'
+							}
+						}
+					},
+					
+					maritalStatus: {
+						validators: {
+							notEmpty: {
+								message: 'Marital Status field is required'
+							}
+						}
+					},
+					
+					bankAccountNo: {
+						validators: {
+							notEmpty: {
+								message: 'Bank Account Number  is required'
+							}
+						}
+					},
+					
+					currentAddress: {
+						validators: {
+							notEmpty: {
+								message: 'Current Address is required'
+							}
+						}
+					},
+					
+					homeAddress: {
+						validators: {
+							notEmpty: {
+								message: 'Home Address  is required'
+							}
+						}
+					},
+					
+					city: {
+						validators: {
+							notEmpty: {
+								message: 'City field  is required'
+							}
+						}
+					},
+					
+					
+					contactNo1: {
+						validators: {
+							notEmpty: {
+								message: 'Contact No 1 field  is required'
+							}
+						}
+					},
+					
+					contactNo2: {
+						validators: {
+							notEmpty: {
+								message: 'Contact No 2  is required'
+							}
+						}
+					},
+					
+					email: {
+						validators: {
+							notEmpty: {
+								message: 'Email field  is required'
+							}
+						}
+					},
+					
+					
+					
+					basicSalary: {
+						validators: {
+							notEmpty: {
+								message: 'Basic Salary  is required'
+							}
+						}
+					},
+					
+					
+					postalCode: {
+						validators: {
+							notEmpty: {
+								message: 'Postal Code  is required'
+							}
+						}
+					},
+					
+					},
+				
+				onSuccess: function(e, data) {
+	                  
+                    alert('Update Successful!!!');
+                }
+				
+				});
+			});
+   			
+		</script>
   	
   	</div>
  

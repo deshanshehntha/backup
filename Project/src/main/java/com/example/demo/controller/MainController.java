@@ -18,7 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.demo.dao.EmployeeDao;
 
 import com.example.demo.model.Employee;
-import com.example.demo.service.EmailNotification;
+import com.example.demo.service.EmailNotificationDeo;
+import com.example.demo.service.EmailNotificationDriver;
+import com.example.demo.service.EmailNotificationTechnician;
 
 
 @Controller
@@ -28,7 +30,13 @@ public class MainController {
 	public EmployeeDao employeedao;
 
 	@Autowired
-	public EmailNotification emailNotification;
+	public EmailNotificationDeo emailNotification;
+	
+	@Autowired
+	public EmailNotificationTechnician emailNotificationTechnician;
+	
+	@Autowired
+	public EmailNotificationDriver emailNotificationDriver;
 	
 	@Autowired
 	public ReadAttendanceFile rt;
@@ -75,7 +83,7 @@ public class MainController {
 		employeedao.insertDriver(employee);
 		
 		try {
-		emailNotification.sendEmail(employee);
+		emailNotificationDriver.sendEmail(employee);
 		}
 		catch(MailException e){
 			e.printStackTrace();
@@ -92,7 +100,7 @@ public class MainController {
 		employeedao.insertTechnician(employee);
 		
 		try {
-		emailNotification.sendEmail(employee);
+			emailNotificationTechnician.sendEmail(employee);
 		}
 		catch(MailException e){
 			e.printStackTrace();
@@ -118,6 +126,16 @@ public class MainController {
 			model.addAttribute("employee", employee);
 			return "EmployeeProfile";
 		}
+	
+	
+	@RequestMapping(value="getEditEmployee",method=RequestMethod.POST)
+	public String editEmpProfile(@RequestParam("employeeId") int employeeId,ModelMap model) 
+		{
+			Employee employee= employeedao.getEmployeeById(employeeId);
+			model.addAttribute("employee", employee);
+			return "EditEmployeeProfile";
+		}
+	
 	
 	@RequestMapping(value="removeEmployee",method=RequestMethod.GET)
 	public String empRemove(@RequestParam("employeeId") int employeeId,ModelMap model) 
@@ -155,6 +173,14 @@ public class MainController {
 		{
 			model.addAttribute("employee",new Employee());
 			return "EmployeeProfile";
+		}
+	
+	
+	@RequestMapping("editprofile")
+	public String editPro(ModelMap model) 
+		{
+			model.addAttribute("employee",new Employee());
+			return "EditEmployeeProfile";
 		}
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)

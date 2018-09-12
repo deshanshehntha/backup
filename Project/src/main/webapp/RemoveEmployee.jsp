@@ -176,21 +176,21 @@
 	<form:form method="POST" action="empRemove"  modelAttribute="remployee" id="validateRemoveForm">
 	
 		<div class="form-group row mt-5">
-			<label for="inputFname" class="col-md-3 col-form-label offset-3">Employee ID<span class="glyphicon glyphicon-star"></span></label>
+			<label for="employeeId" class="col-md-3 col-form-label offset-3">Employee ID<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       		<form:input type="number" class="form-control" path="employeeId" name="employeeId" readonly="true" placeholder="System Generated"/>
       		</div>
   		</div>
   			
   		<div class="form-group row">
-			<label for="inputFname" class="col-md-3 col-form-label offset-3">First Name<span class="glyphicon glyphicon-star"></span></label>
+			<label for="firstName" class="col-md-3 col-form-label offset-3">First Name<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" name="firstName" path="firstName" readonly="true" id="firstName" placeholder="System Generated"/>
       		</div>
 	 	</div>
   	
   		<div class="form-group row">
-			<label for="inputFname" class="col-md-3 col-form-label offset-3">Contact No<span class="glyphicon glyphicon-star"></span></label>
+			<label for="contactNo1" class="col-md-3 col-form-label offset-3">Contact No<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" path="contactNo1" readonly="true" name="contactNo1" id="contactNo1" placeholder="System Generated"/>
       		</div>
@@ -198,42 +198,42 @@
   	
   	
 		<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Registered Date<span class="glyphicon glyphicon-star"></span></label>
+    		<label for="joinedDate" class="col-md-3 col-form-label  offset-3">Registered Date<span class="glyphicon glyphicon-star"></span></label>
    			 <div class="col-md-3">
       				<form:input type="text" class="form-control" readonly="true" path="joinedDate" name="joinedDate" id="joinedDate" placeholder="System Generated"/>
     		</div>
 		</div>
 		
 	 	<div class="form-group row">
-   		 	<label for="inputLname" class="col-md-3 col-form-label  offset-3">Designation<span class="glyphicon glyphicon-star"></span></label>
+   		 	<label for="designation" class="col-md-3 col-form-label  offset-3">Designation<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" path="designation" readonly="true" name="designation" id="inputLname" placeholder="System Generated"/>
     		</div>
 	 	</div>
 	 	
 	 	<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Department<span class="glyphicon glyphicon-star"></span></label>
+    		<label for="departmentName" class="col-md-3 col-form-label  offset-3">Department<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="text" class="form-control" path= "departmentName" readonly="true" name="departmentName" id="departmentName" placeholder="System Generated"/>
     		</div>
 	 	</div>
 	 
 	 	<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Leaving Date<span class="glyphicon glyphicon-star"></span></label>
+    		<label for="leaveDate" class="col-md-3 col-form-label  offset-3">Leaving Date<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
       			<form:input type="date"  path="leavingDate" class="form-control"  id="leaveDate" />
     		</div>
 	 	</div>
 	 
 	 	<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Leaving Reason<span class="glyphicon glyphicon-star"></span></label>
+    		<label for="leaveReason" class="col-md-3 col-form-label  offset-3">Leaving Reason<span class="glyphicon glyphicon-star"></span></label>
     		<div class="col-md-3">
-      			<form:input type="text" class="form-control"  path="reason" id="reason"/>
+      			<form:input type="text" class="form-control"  path="leaveReason" id="leaveReason"/>
     		</div>
 	 	</div>
 	 
 	 	<div class="form-group row">
-	 		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Resignation Letter</label>
+	 		<label for="resignation" class="col-md-3 col-form-label  offset-3">Resignation Letter</label>
 	  		<div class="col-md-3">
       			<div class="input-group">
   					<div class="custom-file">
@@ -247,7 +247,7 @@
     
     
      	<div class="form-group row">
-    		<label for="inputLname" class="col-md-3 col-form-label  offset-3">Special Notes</label>
+    		<label for="specialNotes" class="col-md-3 col-form-label  offset-3">Special Notes</label>
     		<div class="col-md-3">
       			<textarea class="form-control" id="specialNotes" name="specialNotes" rows=5></textarea>
     		</div>
@@ -312,7 +312,7 @@
 					designation: {
 						validators: {
 							notEmpty: {
-								message: 'Reason cannot be Empty'
+								message: 'Designation cannot be Empty'
 							}
 						}
 					},	
@@ -320,12 +320,12 @@
 					department: {
 						validators: {
 							notEmpty: {
-								message: 'Reason cannot be Empty'
+								message: 'Department cannot be Empty'
 							}
 						}
 					},	
 					
-					reason: {
+					leaveReason: {
 						validators: {
 							notEmpty: {
 								message: 'Reason cannot be Empty'
